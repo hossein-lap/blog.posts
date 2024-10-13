@@ -7,7 +7,7 @@ draft: false
 toc: true
 tags: ["docker", "container"]
 description: |
-   Personal notes about docker container manager
+   Some notes about docker container manager
 ---
 
 = Docker
@@ -15,9 +15,73 @@ description: |
 :numbered:
 :icon-set: fi
 
-WIP
+== Intro
+
+Yeah I don't like long intros either, but this one needs a little more digging.
+Let's begin.
+
+=== What is Docker?
+
+Docker is a container management service. You may also hear it referred as
+_container engine_. All it can do is *create*, *run* and *manage* containers.
+Let's go a little bit deeper.
+
+=== What is a container
+
+Let me put it this way, what you need to run a program? A computer (servers are
+also computers) and what a computer (beside hardware) has? Software.
+Now what software do you use to work with the computer's hardware? *Operating
+System*. Containers are just a small isolated things that emulates a Operating
+System. In a different approach we can say: *Using OS-level virtualization to
+deliver software in packages called _containers_*.
+
+=== Containers VS. Virtual-Machines
+
+Every VM requires its own dedicated operating system (OS) is a major flaw.
+Every OS consumes CPU, RAM and other resources that could otherwise be used to
+power more applications. Every OS needs patching and monitoring. And in some
+cases, every OS requires a license. All of this results in wasted time and
+resources.
+
+A major difference is that containers do not require their own full-blown OS.
+In fact, all containers on a single host share the host's OS. This frees up
+huge amounts of system resources such as CPU, RAM, and storage. It also reduces
+potential licensing costs and reduces the overhead of OS patching and other
+maintenance.
+
+image::/images/notes/docker/vm-vs-container.png[]
+
+=== Linux containers
+
+Modern containers started in the Linux world and are the product of an immense
+amount of work from a wide variety of people over a long period of time. Just
+as one example, Google LLC has contributed many container-related technologies
+to the Linux kernel. Without these, and other contributions, we wouldn't have
+modern containers today.
+
+[NOTE]
+====
+There are many operating system virtualization technologies similar to
+containers that pre-date Docker and modern containers. Some even date back to
+System/360 on the Mainframe. BSD Jails and Solaris Zones are some other
+well-known examples of Unix-type container technologies.
+====
 
 == Basics
+
+.Pulling an image
+[source,bash]
+----
+docker image pull ubuntu:latest
+----
+
+=== Dockerfile
+
+You can create your own Docker image from a file called `Dockerfile`.
+This file includes instructions to build an application. Instructions like
+installing dependencies, copying files, running compile / build commands and
+so on. _Things that needs to be done for preparing the environment that you app
+will run in it_.
 
 .Dockerfile -- Simple webapp
 [source,dockerfile]
@@ -43,7 +107,7 @@ ENTRYPOINT ["node", "./app.js"]
 * `EXPOSE`: The port that will be exposed
 ** available to the host/other images
 * `ENTRYPOINT`: The command that will be run at the end
-** The actual app; all the previous commands are just a preperation for this command/section
+** The actual app; all the previous commands are just a preparation for this command/section
 ====
 
 .Dockerfile -- Build image
@@ -102,30 +166,45 @@ CONTAINER ID   IMAGE         COMMAND           CREATED          STATUS          
 ....
 ====
 
-== Multi-stage Dockerfile
+You can also use multiple images inside one container:
 
+.Multi-stage Dockerfile
 [source,docker]
 ----
+# pull golang image to build the app
 FROM golang:alpine as builder
+# add a label
 LABEL maintainer="Hossein Esmailzadeh <hosteam01@gmail.com>"
 
+## inside golang:alpine image
+# change the working directory
 WORKDIR /app
 
+# copy golang's related files (checksum and module files)
 COPY go.mod go.sum ./
+# get the needed modules
 RUN go mod download
+# copy the source code
 COPY . .
 
+# compile the app
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main .
 
-## runner
+## inside our image
+# use a alpine (very small OS) image as base
 FROM alpine:latest  
 
+# install dependencies
 RUN apk --no-cache add ca-certificates
+# change the working directory
 WORKDIR /root/
+# copy the built binary from the golang:alpine image inside our container
 COPY --from=builder /app/main .
 
+# let port 9090 to be accessible for others
 EXPOSE 9090
 
+# run the binary at the end
 CMD ["./main"] 
 ----
 
