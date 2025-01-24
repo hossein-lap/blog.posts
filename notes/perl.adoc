@@ -511,7 +511,7 @@ Perl provides a set of functions that allow you to manipulate strings
 effectively. We cover the most commonly used string functions in the following
 section for your reference.
 
-==== Perl string length
+.Perl string length
 
 To find the number of characters in a string, you use the `length()` function.
 
@@ -521,7 +521,7 @@ my $s = "This is a string\n";
 print(length($s),"\n"); #17
 ----
 
-==== Changing cases of string
+.Changing cases of string
 
 To change the cases of a string you use a pair of functions `lc()` and `uc()`
 that returns the lowercase and uppercase versions of a string.
@@ -536,7 +536,7 @@ print("To lower case:\n");
 print(lc($s),"\n");
 ----
 
-==== Search for a substring inside a string
+.Search for a substring inside a string
 
 To search for a substring inside a string, you use `index()` and `rindex()`
 functions.
@@ -563,7 +563,7 @@ my $p = index($s,$sub); # rindex($s,$sub);
 print(qq\The substring "$sub" found at position "$p" in string "$s"\,"\n");
 ----
 
-==== Get or modify substring inside a string
+.Get or modify substring inside a string
 
 To extract a substring out of a string, you use the `substr()` function.
 
@@ -584,7 +584,7 @@ substr($s, 0, 5, "Red"); #Red is my favorite color
 print($s,"\n");
 ----
 
-==== Other useful Perl string functions
+.Other useful Perl string functions
 
 The following table illustrates other useful Perl string functions with their
 descriptions:
@@ -648,7 +648,7 @@ Perl provides numeric operators to help you operate on numbers including
 arithmetic, Boolean and bitwise operations. Let’s examine the different kinds
 of operators in more detail.
 
-==== Arithmetic operators
+.Arithmetic operators
 
 Perl arithmetic operators deal with basic math such as adding, subtracting,
 multiplying, diving, etc. To add (`+`) or subtract (`-`) numbers, you would do
@@ -730,7 +730,7 @@ print 4 % 2, "\n"; # 0 even
 print 5 % 2, "\n"; # 1 odd
 ----
 
-==== Bitwise Operators
+.Bitwise Operators
 
 Bitwise operators allow you to operate on numbers one bit at a time. Think of a
 number as a series of bits e.g., `125` can be represented in binary form as
@@ -770,7 +770,7 @@ $c = $a << 1; # 0101 shift left 1 bit, 1010 or 10
 print $c, "\n";
 ----
 
-==== Comparison operators for numbers
+.Comparison operators for numbers
 
 |===
 | Equality | Operators
@@ -833,7 +833,7 @@ print $a <=> $b, "\n";
 
 === String operators
 
-==== Comparison operators
+.Comparison operators
 
 |===
 | Equality | Operators
@@ -861,7 +861,7 @@ print $a <=> $b, "\n";
 
 |===
 
-==== Concatenation operators
+.Concatenation operators
 
 Perl provides the concatenation (`.`) and repetition (`x`) operators that allow
 you to manipulate strings
@@ -878,7 +878,7 @@ print "This is" . " concatenation operator" . "\n";
 print "a message " x 4, "\n";
 ----
 
-==== The chomp() operator
+.The chomp() operator
 
 The `chomp()` operator (or function) removes the last character in a string and
 returns a number of characters that were removed. The `chomp()` operator is
@@ -1068,7 +1068,7 @@ following example defines two lists:
 == Array
 
 Perl array and how to use arrays effectively in your program and techniques to
-manipulate array’s elements
+manipulate array’s elements.
 
 A
 <<doc/02-perl-variables.adoc#_perl_list,list>>
@@ -1207,7 +1207,7 @@ Perl provides several useful functions and operators to help you manipulate
 arrays effectively. We will cover the most important ones in the following
 sections.
 
-==== Perl array as a stack with push() and pop() functions
+.Perl array as a stack with push() and pop() functions
 
 Both functions treat an array as a stack. A stack works based on the last in
 first out (LIFO) philosophy. It works exactly the same as a stack of books. The
@@ -1215,7 +1215,7 @@ first out (LIFO) philosophy. It works exactly the same as a stack of books. The
 the `pop()` function removes the last element from the end of the array.
 
 .How to use `push()` and `pop()` functions
-[source.perl]
+[source,perl]
 ----
 #!/usr/bin/perl
 use warnings;
@@ -1245,7 +1245,7 @@ $elem = pop(@stack);
 print("element: $elem\n");
 ----
 
-==== Perl array as a queue with `unshift()` and `pop()` functions
+.Perl array as a queue with `unshift()` and `pop()` functions
 
 If the `push()` and pop()` treat an array as a stack, the `unshift()` and
 `pop()` functions treat an array as a queue. A queue works based on the first
@@ -1254,7 +1254,7 @@ in first out (FIFO) philosophy. It works like a queue of visitors. The
 the `pop()` function removes the last element of the array.
 
 .How to use `unshift()` and `pop()` functions
-[source.perl]
+[source,perl]
 ----
 #!/usr/bin/perl
 use warnings;
@@ -1283,7 +1283,7 @@ $elem = pop(@queue);
 print("element: $elem\n");
 ----
 
-==== Sorting Perl arrays
+.Sorting Perl arrays
 
 Perl provides the `sort()` function that allows you to sort an array in
 alphabetical or numerical order.
@@ -1332,7 +1332,605 @@ For more information on the `sort()` function, check out the
 Perl sort function
 <<doc/02-perl-variables.adoc#_perl_sort,Perl sort function>>.
 
-== WIP
+== Hash
 
+Another compound data type called Perl hash and how to manipulate hash elements
+effectively.
+
+A Perl hash is defined by key-value pairs. Perl stores elements of a hash in
+such an optimal way that you can look up its values based on keys very fast.
+
+With the array, you use indices to access its elements. However, you must use
+descriptive keys to access hash element. A hash is sometimes referred to as an
+associative array.
+
+Like a scalar or an array variable, a hash variable has its own prefix. A hash
+variable must begin with a percent sign (`%`). The prefix `%` looks like
+key/value pair so remember this trick to name the hash variables.
+
+[source,perl]
+----
+%data = ('John Paul', 45, 'Lisa', 30, 'Kumar', 40);
+----
+
+Perl provides the `=>` operator as an alternative to a comma (`,`). It helps
+differentiate between keys and values and makes the code more elegant.
+
+When you see the `=>` operator, you know that you are dealing with a hash, not
+a list or an array.
+
+[source,perl]
+----
+my %countries =  ( England => 'English',
+                   France  => 'French', 
+                   Spain   => 'Spanish', 
+                   China   => 'Chinese', 
+                   Germany => 'German');
+----
+
+Perl requires the keys of a hash to be strings, meanwhile, the values can be
+any scalars. If you use non-string values as the keys, you may get an
+unexpected result.
+
+In addition, a hash key must be unique. If you try to add a new key-value pair
+with the key that already exists, *the value of the existing key will be
+over-written*.
+
+[NOTE]
+====
+You can omit the quotation in the keys of the hash.
+====
+
+=== Hash Operations
+
+The most commonly used operation in the hash.
+
+.Look up Perl hash values
+
+Use a hash key inside curly brackets `{}` to look up a hash value.
+[source,perl]
+----
+#!/usr/bin/perl
+use warnings;
+use strict;
+# defines country => language hash
+my %langs = ( England => 'English',
+              France => 'French', 
+              Spain => 'Spanish', 
+              China => 'Chinese', 
+              Germany => 'German');
+# get language of England
+my $lang = $langs{'England'}; # English
+print($lang,"\n");
+----
+
+.Add new element
+[source,perl]
+----
+$langs{'Italy'} = 'Italian';
+----
+
+.Remove a single key/value pair
+[source,perl]
+----
+delete $langs{'China'};
+----
+
+.Modify hash elements
+
+[source,perl]
+----
+# add new key value pair
+$langs{'India'} = 'Many languages';
+# modify official language of India
+$langs{'India'} = 'Hindi'; #
+----
+
+.Loop over Perl hash elements
+
+Perl provides the `keys()` function that allows you to get a list of keys in
+scalars. You can use the `keys()` function in a `for` loop statement to iterate
+the hash elements:
+
+[source,perl]
+----
+#!/usr/bin/perl
+use warnings;
+use strict;
+
+# defines country => language hash
+my %langs = ( England => 'English',
+              France  => 'French', 
+              Spain   => 'Spanish', 
+              China   => 'Chinese', 
+              Germany => 'German');
+
+for (keys %langs) {
+    print("Official Language of $_ is $langs{$_}\n");
+}
+----
+
+The `keys()` function returns a list of hash keys. The `for` loop visits each
+key and assigns it to a special variable `$_`. Inside the loop, we access the
+value of a hash element via its key as `$langs{$_}`.
+
+== *_if_* Statement
+
+Perl `if` statement allows you to control the execution of your code based on
+conditions. The simplest form of the `if` statement is as follows:
+
+[source,perl]
+----
+if (expression);
+----
+
+In this form, you can put the `if` statement after another statement. Let’s
+take a look at the following example:
+
+[source,perl]
+----
+my $a = 1;
+print("Welcome to Perl if tutorial\n") if ($a == 1);
+----
+
+The message is only displayed if the expression `$a == 1` evaluates to `true`.
+
+.How Perl defines *_true_* and *_false_*?
+****
+* Both number 0 and string “0” are `false`.
+* The `undefined` value is `false`.
+* The empty list `()` is `false`.
+* The empty string `""` is `false`.
+* Everything else is `true`.
+****
+
+.Execute multiple statements based on a condition
+[source,perl]
+----
+if (expression) {
+   statement;
+   statement;
+   ...
+}
+----
+
+[NOTE]
+====
+The curly braces `{}` are required even if you have a single statement to
+execute
+====
+
+.*_if..else_* Statement
+
+Perl provides the `if else` statement that allows you to execute a code block
+if the expression evaluates to `true`, otherwise, the code block inside the
+`else` branch will execute.
+
+[source,perl]
+----
+if (expression) {
+   // if code block;
+} else {
+   // else code block;
+}
+----
+
+.Example
+[source,perl]
+----
+my $a = 1;
+my $b = 2;
+if ($a == $b) {
+    print("a and b are equal\n");
+} else {
+    print("a and b are not equal\n");
+}
+----
+
+The code block in the else branch will execute because $a and $b are not equal.
+
+.*_if..elsif_* statement
+
+In some cases, you want to test more than one condition:
+
+====
+* If `$a` and `$b` are equal, then do this.
+* If `$a` is greater than `$b` then do that.
+* Otherwise, do something else.
+====
+
+Perl provides the if elsif statement for checking multiple conditions and
+executing the corresponding code block:
+
+[source,perl]
+----
+if (expression) {
+    ...
+} elsif (expression2) {
+    ...
+} elsif (expression3) {
+    ...
+} else {
+    ...
+}
+----
+
+== A Simple Program
+
+We are going to apply what we have learned so far to create a simple program
+called currency converter.
+
+* We will use a hash to store the exchange rates.
+* To get the inputs from users via the command line, we will use `<STDIN>`. We
+  use the `chomp()` function to remove the newline character (\n) from the
+  user’s inputs.
+* We convert the amount from local currency to foreign currency if the
+  currencies are supported.
+
+[source,perl]
+----
+#!/usr/bin/perl
+use warnings;
+use strict;
+
+my ($l_curr, $f_curr, $l_amount, $f_amount);
+
+my %rates = (	
+     USD => 1,
+     YPY => 82.25,
+     EUR => 0.78,
+     GBP => 0.62,
+     CNY => 6.23
+);
+
+# print supported currencies
+print("Supported currency:\n");
+for (keys %rates) {
+	print(uc($_),"\n");
+}
+
+# get inputs from users:
+print("Enter local currency:\n");
+$l_curr = <STDIN>;
+
+print("Enter foreign currency:\n");
+$f_curr = <STDIN>;
+
+print("Enter amount:\n");
+$l_amount = <STDIN>;
+
+chomp($l_curr,$f_curr,$l_amount);
+
+# check user's inputs.
+if (not exists $rates{$l_curr}) {
+     print("Local currency is not supported\n");
+} elsif (not exists $rates{$f_curr}) {
+     print("Foreign currency is not supported\n");
+} else {
+     # convert from local currency to foreign currency
+     $f_amount = ($rates{$f_curr} / $rates{$l_curr}) * $l_amount;
+
+     # print out the result
+     print("$l_amount $l_curr = $f_amount $f_curr","\n");
+}
+----
+
+== *_unless_* Statement
+
+Before discussing the unless statement, let’s revisit Perl’s philosophy:
+____
+There is more than one way to do it.
+____
+
+Perl always provides you with an alternative way to achieve what you need to do.
+In programming, you often hear something like this:
+
+* If it’s not true, then do this (use `if` not statement).
+* or unless it’s true, then do this (use `unless` statement).
+
+The effect is the same but the philosophy is different. That’s why Perl
+invented the `unless` statement to increase the readability of code when you
+use it properly.
+
+[NOTE]
+====
+the Perl `unless` statement is equivalent to the `if not` statement
+====
+
+.*_unless_* statement
+[source,perl]
+----
+statement unless (condition);
+----
+
+Perl executes the statement from right to left, if the condition is `false`,
+Perl executes the statement that precedes the `unless`. If the condition is
+`true`, Perl skips the statement.
+
+If you have more than one statement to execute, you can use the following form
+of the Perl unless statement:
+[source,perl]
+----
+unless (condition) {
+    // code block
+}
+----
+
+If the `condition` evaluates to `false`, Perl executes the code block,
+otherwise, it skips the code block.
+
+[source,perl]
+----
+my $a = 10;
+
+unless($a <= 0){
+    print("a is greater than 0\n")	                   
+}
+----
+
+.*_unless..else_* statement
+
+Sometimes you want to say unless the condition is `true`, then do this,
+otherwise do that.
+
+This is where the `unless...else` statement comes into play. See the following
+`unless else` statement:
+
+[source,perl]
+----
+unless (condition) {
+    // unless code block
+} else {
+    // else code block
+}
+----
+
+If the condition is `false`, Perl will execute the `unless` code block,
+otherwise, Perl will execute the `else` code block.
+
+[source,perl]
+----
+my $a = 10;
+unless ($a >= 0) {
+    print("a is less than 0\n");                   
+} else {
+    print("a is greater than or equal 0\n");	                   
+}
+----
+....
+a is greater than or equal 0
+....
+
+.*_unless..elsif..else_* statement
+
+If you have more than one condition for checking with the `unless` statement,
+you can use the `unless elsif else` statement as follows:
+
+[source,perl]
+----
+unless (condition_1) {
+    // unless code block
+} elsif (condition_2) {
+    // elsif code block
+} else {
+    // else code block
+}
+----
+
+You can have many `elsif` clauses in the `unless elsif` statement.
+
+[source,perl]
+----
+my $a = 1;
+
+unless ($a > 0) {
+    print("a is less than 0\n");                   
+} elsif ($a == 0) {
+    print("a is 0\n");                   
+} else {
+    print("a is greater than 0\n");	                   
+}
+----
+
+.*_unless_* statement guidelines
+****
+====
+You should use the `unless` statement with a simple condition to improve the
+code readability, especially when used as a postfix after another statement
+like the following example:
+
+[source,perl]
+----
+my $a = 1;
+print("unless used with a very simple condition ONLY.\n") unless($a < 0);
+----
+====
+
+====
+You should avoid using the `unless` statement when the condition is complex and
+requires `else` and/or `elsif` clauses.
+
+If you take a look at the following code, it is difficult to interpret the
+meaning of the condition.
+
+[source,perl]
+----
+my $a = 1;
+my $b = 10;
+my $c = 20;
+unless ($a < 0 && $b == 10 && $c > 0) {
+    print("unless used with a very complex condition\n");
+}
+----
+====
+****
+
+== given Statement
+
+Perl `given` statement, is similar to the switch case statement in other
+languages.
+
+The `given` statement works like a series of if statements that allow you to
+match an expression or variable against different values, depending on the
+matched value, Perl will execute statements in the corresponding `when` clause.
+
+.Pragma for using given statement
+Perl introduced the `given` statement since version 5.10. In order to use the
+Perl `given` statement, you must use the following pragma:
+
+[source,perl]
+----
+use v5.10;
+----
+
+Or use the following pragma:
+
+[source,perl]
+----
+use feature "switch";
+----
+
+.Perl *_given_* Syntax
+
+There are several new keywords introduced along with the `given` such as:
+`when`, `break` and `continue`.
+
+[source,perl]
+----
+given (expr) {
+     when (expr1) { statement; }
+     when (expr1) { statement; }
+     when (expr1) { statement; }
+     ...
+}
+----
+
+.*_given_* statement in greater detail
+****
+* Both given and `when` accept arguments in a scalar context.
+* The type of argument you pass to the `given` clause determines the kind of
+  pattern matching that Perl will use to perform matching. If the argument
+  appears to be a `Boolean` expression, Perl evaluates it directly. Otherwise,
+  Perl will use the smart match operator to evaluate the argument, something
+  like `$_ ~~ expr`
+* To break out a `when` block, you use the `break` statement. Perl uses `break`
+  statement implicitly for all `when` blocks so you don’t have to explicitly
+  specify it.
+* To fall through from one case to the next, you use the `continue` statement.
+****
+
+[NOTE]
+====
+* From version 5.12 you can use `when` as a statement modifier.
+* From version 5.14, the `given` statement returns the last evaluated
+  expression if no condition is `true` or the last evaluated expression of the
+  `default` clause. The `given` statement also returns an empty list when the
+  break statement is encountered or no condition is matched.
+====
+
+.*_given_* statement examples
+
+The following program asks the user to input an RGB (red, green, blue) color and returns its color code:
+
+[source,perl]
+----
+use v5.10; # at least for Perl 5.10
+#use feature "switch";
+use warnings;
+use strict;
+
+my $color;
+my $code;
+
+print("Please enter a RGB color to get its code:\n");
+$color = <STDIN>;
+chomp($color);
+$color = uc($color);
+
+given($color){
+    when ('RED') {  $code = '#FF0000'; }
+    when ('GREEN') {  $code = '#00FF00'; }
+    when ('BLUE') {  $code = '#0000FF'; }
+    default {
+        $code = '';
+    }
+}
+if ($code ne '') {
+    print("code of $color is $code \n");
+} else {
+    print("$color is not RGB color\n");
+}
+----
+
+.How program works
+****
+* First, we declared the `pragma use v5.10;` in order to use the `given`
+  statement.
+* Second, we asked the user for a color, we removed the newline by using the
+  `chomp()` function and made the input color upper case so that whatever
+  format of color the user entered is accepted e.g., Red, rEd or RED is the red
+  color.
+* Third, we used the `given` statement to check. If no color is found, then we
+  set the color code to blank in the default clause. Based on the user’s input,
+  we got the corresponding color code and display it.
+****
+
+From Perl version 5.12, you can use the `when` statement as a statement
+modifier like the following example:
+
+[source,perl]
+----
+given ($color) {
+    $code = '#FF0000' when 'RED';
+    $code = '#00FF00' when 'GREEN';
+    $code = '#0000FF' when 'BLUE';
+    default { $code = ''; }
+}
+----
+
+In addition, the given statement returns a value that is the result of the last
+expression.
+
+[source,perl]
+----
+print do {
+    given ($color) {
+        "#FF0000\n" when 'RED';
+        "#00FF00\n" when 'GREEN';
+        "#0000FF\n" when 'BLUE';
+        default { ''; }
+    }
+}
+----
+
+More complex example:
+
+[source,perl]
+----
+use v5.12;
+use strict;
+use warnings;
+
+print 'Enter something: ';
+chomp( my $input = <> );
+
+print do {
+    given ($input) {
+        "The input has numbers\n"  when /\d/;
+        "The input has letters\n"  when /[a-zA-Z]/;
+        default { "The input has neither number nor letter\n"; }
+    }
+}
+----
+
+.How the program works
+****
+* The program asks the user to enter anything that can be numbers, letters, or
+  both.
+* In the `when` clause, we used a very special expression that is known as a
+  regular expression. The `/\d/` matches any string that contains only numbers,
+  The `/[a-zA-Z]/` expression matches the string that contains only letters. In
+  this case, the `given` statement can do more advanced matches.
+****
 
 
