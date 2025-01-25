@@ -298,16 +298,16 @@ print("my favorite #1 color is " . $color . "\n");
 
 .In the example above:
 ____
-* First, declared a global variable named `$color`.
+* First, declared a global variable named `$color`
 * Then, displayed the favorite color by referring to the `$color` variable. As
-  expected, we get the red color in this case.
+  expected, we get the red color in this case
 * Next, created a new block and declared a variable with the same name `$color`
   using the `my` keyword. The `$color` variable is lexical. It is a local
-  variable and only visible inside the enclosing block.
+  variable and only visible inside the enclosing block
 * After that, inside the block, we displayed the favorite color and we got the
-  `blue` color. The local variable takes priority in this case.
+  `blue` color. The local variable takes priority in this case
 * Finally, following the block, we referred to the `$color` variable and Perl
-  referred to the `$color` global variable.
+  referred to the `$color` global variable
 ____
 
 If you want to declare global variables that are visible throughout your
@@ -345,7 +345,7 @@ Perl interpolates the value of `$amount` into the string which is 20.
 Note that Perl only interpolates scalar variables and
 <<doc/07-perl-array.adoc#_Perl_array,array>>, not
 <<doc/07-perl-hash.adoc#_Perl_hash,hashes>>. In addition, the interpolation is
-only applied to the double-quoted string, but not the single-quoted string.
+only applied to the double-quoted string, but not the single-quoted string
 ====
 
 == Perl Numbers
@@ -466,7 +466,7 @@ Besides the single and double quotes, Perl also allows you to use quote-like
 operators such as:
 
 * The `q//` acts like a single-quoted string.
-* The `qq//` acts like double-quoted string.
+* The `qq//` acts like double-quoted string
 
 You can choose any non-alphabetic and non-numeric characters as the delimiters,
 not only just characters `//`.
@@ -485,13 +485,14 @@ my $s2 = qq/"Are you learning Perl String today?"$name asked./;
 print($s2 ,"\n");
 ----
 
-How it works.
-
+.How it works
+====
 * First, defined a single-quoted string variable with the quote-like operator
-  `q/`. The string  `$s` ends with `/`.
+  `q/`. The string  `$s` ends with `/`
 * Second, defined a double-quoted string with the quote-like operator `qq/`. In
   this case, we used the `$name` variable inside a string and it is replaced by
-  its value, `Jack`.
+  its value, `Jack`
+====
 
 The following example demonstrates string with the `^` delimiter.
 
@@ -1765,7 +1766,7 @@ unless ($a < 0 && $b == 10 && $c > 0) {
 ====
 ****
 
-== given Statement
+== *_given_* Statement
 
 Perl `given` statement, is similar to the switch case statement in other
 languages.
@@ -1932,5 +1933,195 @@ print do {
   The `/[a-zA-Z]/` expression matches the string that contains only letters. In
   this case, the `given` statement can do more advanced matches.
 ****
+
+== *_for_* Loop
+
+Perl for loop statement to loop over elements of a list.
+
+.*_for_* and *_foreach_* statements
+
+The Perl `for` loop statement allows you to loop over elements of a list. In
+each iteration, you can process each element of the list separately. This is
+why the `for` loop statement is sometimes referred to as `foreach` loop.
+
+In Perl, the `for` and `foreach` loop are interchangeable, therefore, you can
+use the `foreach` keyword in where you use the `for` keyword.
+
+.Loop over elements of an array
+
+[source,perl]
+----
+#!/usr/bin/perl
+use warnings;
+use strict;
+
+my @a = (1..9);
+for (@a) {
+    print("$_","\n");
+}
+----
+
+.How it works
+====
+* First, we defined an array of 9 integers `@a`
+* Second, we used `for` loop statement to loop over elements of the `@a` array.
+* Third, inside the loop, we displayed element’s value using default variable
+  `$_`
+====
+
+If you replace the `for` keyword by the `foreach` keyword in the above example,
+it works the same.
+
+[source,perl]
+----
+#!/usr/bin/perl
+use warnings;
+use strict;
+
+my @a = (1..9);
+foreach (@a) {
+    print("$_","\n");
+}
+----
+
+.*_for_* loop iterator
+
+If we don’t supply an explicit iterator to the loop, Perl will use a special
+variable called default variable with the name `$\_` as the iterator. In each
+iteration, Perl assigns each element of the array `@a` to the default variable
+`$_`.
+
+.Explicit Perl for loop iterator
+
+If you want to specify an explicit iterator for the loop, you can declare it in
+the `for` loop statement as follows:
+
+[source,perl]
+----
+#!/usr/bin/perl
+use warnings;
+use strict;
+
+my @a = (1..9);
+for my $i (@a) {
+    print("$i","\n");
+}
+----
+
+`$i` is the iterator of the `for` loop in this example. In each iteration, Perl
+assigns the corresponding element of the array to the `$i` iterator. Notice
+that the `$i` variable exists only during the execution of the loop.
+
+If you declare an iterator before entering the loop, Perl will restore its
+original value after the loop is terminated. Take a look at the following
+example:
+
+[source,perl]
+----
+#!/usr/bin/perl
+use warnings;
+use strict;
+
+my @a = (1..9);
+my $i = 20;
+
+for $i (@a) {
+    print("$i","\n");
+}
+
+print('iterator $i is ',"$i","\n"); # 20
+----
+
+.How it works
+====
+* First, we declared variable `$i` before the loop and initialized its value to
+  `20`.
+* Second, we used a variable `$i` as the iterator; its value changes in each
+  iteration of the loop.
+* Third, after the loop, we displayed the value of `$i`. Perl restored its
+  original value, which is `20`.
+====
+
+.Perl for loop iterator: value or alias
+
+In each iteration of the loop, Perl creates an alias instead of a value. In
+other words, if you make any changes to the iterator, the changes also reflect
+in the elements of the array. See the following example:
+
+[source,perl]
+----
+#!/usr/bin/perl
+use warnings;
+use strict;
+
+my @b = (1..5);
+
+print("Before the loop: @b \n");
+
+for (@b) {
+    $_ = $_ * 2;
+}
+
+print("After the loop: @b \n");
+----
+
+.How it works
+====
+* First, we declared an array `@b` with 5 elements from 1 to 5. We displayed
+  the array `@b` elements using `print` function
+* Second, we iterated elements of the array. We multiplied each element with
+  `2` through the iterator `$_`
+* Third, outside of the loop, we displayed the elements of the array again
+====
+
+.C-style *_for_* loop
+
+Perl also supports for loop in C-style. However, it is not a good practice to
+use the C-style for loop because to code will become less readable.
+
+[source,perl]
+----
+for (initialization; test; step) {
+    // code block;
+}
+----
+
+.There are three control parts:
+====
+* Initialization. Perl executes the initialization once when the loop is
+  entered. We often use initialization to initialize a loop counter variable.
+* Test. Perl evaluates the `test` expression at the beginning of each iteration
+  and executes the code block inside the loop body as long as the test
+  expression evaluates to false.
+* Step. Perl executes `step` at the end of each iteration. You often use the
+  step to modify the loop counter.
+====
+
+.C-style for loop:
+[source,perl]
+----
+#!/usr/bin/perl
+use warnings;
+use strict;
+
+my @c = (1..6);
+for (my $i = 0; $i <= $#c; $i++) {
+    print("$c[$i] \n");
+}
+----
+
+It is much more readable if you Perl’s for loop style
+
+[source,perl]
+----
+#!/usr/bin/perl
+use warnings;
+use strict;
+
+my @c = (1..6);
+for (@c) {
+    print("$_ \n");
+}
+----
 
 
