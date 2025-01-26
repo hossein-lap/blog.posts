@@ -23,14 +23,18 @@ use warnings;
 print("Hello world!\n");
 ----
 
-.Note
+[NOTE]
+====
 `use warnings;` is called _pragma_ in Perl. This pragma instructs Perl to turn
 on additional warning reporting.
+====
 
 == Perl Syntax
 
+****
 Basic *Perl syntax* to get started with Perl language quickly including
 variables, expressions, statements, block, comments, whitespaces, and keywords.
+****
 
 === Values and Variables
 
@@ -296,8 +300,8 @@ print("my favorite #1 color is " . $color . "\n");
 print("my favorite #1 color is " . $color . "\n");
 ----
 
-.In the example above:
-____
+.In the example above
+****
 * First, declared a global variable named `$color`
 * Then, displayed the favorite color by referring to the `$color` variable. As
   expected, we get the red color in this case
@@ -308,7 +312,7 @@ ____
   `blue` color. The local variable takes priority in this case
 * Finally, following the block, we referred to the `$color` variable and Perl
   referred to the `$color` global variable
-____
+****
 
 If you want to declare global variables that are visible throughout your
 program or from external packages, you can use `our` keyword as shown in the
@@ -342,7 +346,7 @@ Perl interpolates the value of `$amount` into the string which is 20.
 
 [NOTE]
 ====
-Note that Perl only interpolates scalar variables and
+Perl only interpolates scalar variables and
 <<doc/07-perl-array.adoc#_Perl_array,array>>, not
 <<doc/07-perl-hash.adoc#_Perl_hash,hashes>>. In addition, the interpolation is
 only applied to the double-quoted string, but not the single-quoted string
@@ -486,13 +490,12 @@ print($s2 ,"\n");
 ----
 
 .How it works
-====
+
 * First, defined a single-quoted string variable with the quote-like operator
   `q/`. The string  `$s` ends with `/`
 * Second, defined a double-quoted string with the quote-like operator `qq/`. In
   this case, we used the `$name` variable inside a string and it is replaced by
   its value, `Jack`
-====
 
 The following example demonstrates string with the `^` delimiter.
 
@@ -1318,7 +1321,7 @@ print("sorted:", "@a", "\n"); # sorted: 1 2 3 4 6 7
 ----
 
 .In the example above:
-====
+
 * First, we had an unsorted array `@a`, and we displayed the `@a` array to make
   sure that it is unsorted.
 * Second, we used the `sort()` function to sort the `@a` array. We passed a
@@ -1327,7 +1330,6 @@ print("sorted:", "@a", "\n"); # sorted: 1 2 3 4 6 7
   The operator `<=>` is used to compare two numbers. The code block `{$a <=>
   $b}` returns -1 if `$a` < `$b`, 0 if `$a` = `$b`, and 1 if `$a` > `$b`.
 * Third, we displayed the elements of the sorted array @a.
-====
 
 For more information on the `sort()` function, check out the
 Perl sort function
@@ -1962,12 +1964,11 @@ for (@a) {
 ----
 
 .How it works
-====
+
 * First, we defined an array of 9 integers `@a`
 * Second, we used `for` loop statement to loop over elements of the `@a` array.
 * Third, inside the loop, we displayed element’s value using default variable
   `$_`
-====
 
 If you replace the `for` keyword by the `foreach` keyword in the above example,
 it works the same.
@@ -2033,14 +2034,13 @@ print('iterator $i is ',"$i","\n"); # 20
 ----
 
 .How it works
-====
+
 * First, we declared variable `$i` before the loop and initialized its value to
   `20`.
 * Second, we used a variable `$i` as the iterator; its value changes in each
   iteration of the loop.
 * Third, after the loop, we displayed the value of `$i`. Perl restored its
   original value, which is `20`.
-====
 
 .Perl for loop iterator: value or alias
 
@@ -2066,13 +2066,12 @@ print("After the loop: @b \n");
 ----
 
 .How it works
-====
+
 * First, we declared an array `@b` with 5 elements from 1 to 5. We displayed
   the array `@b` elements using `print` function
 * Second, we iterated elements of the array. We multiplied each element with
   `2` through the iterator `$_`
 * Third, outside of the loop, we displayed the elements of the array again
-====
 
 .C-style *_for_* loop
 
@@ -2087,7 +2086,7 @@ for (initialization; test; step) {
 ----
 
 .There are three control parts:
-====
+
 * Initialization. Perl executes the initialization once when the loop is
   entered. We often use initialization to initialize a loop counter variable.
 * Test. Perl evaluates the `test` expression at the beginning of each iteration
@@ -2095,7 +2094,6 @@ for (initialization; test; step) {
   expression evaluates to false.
 * Step. Perl executes `step` at the end of each iteration. You often use the
   step to modify the loop counter.
-====
 
 .C-style for loop:
 [source,perl]
@@ -2124,4 +2122,139 @@ for (@c) {
 }
 ----
 
+== *_while_* loop statement
+
+Perl `while` loop statement executes a code block repeatedly as long as the
+test condition remains `true`. The test condition is checked at the beginning
+of each iteration.
+
+[source,perl]
+----
+while (condition) {
+    # code block
+}
+----
+
+If the `condition` evaluates to `true`, the code block inside `while` loop
+executes.
+
+At the beginning of each iteration, the `condition` is reevaluated. The loop is
+terminated if the `condition` evaluates to `false`.
+
+At some point in the loop, you have to change some variables that make the
+condition `false` to stop the loop. Otherwise, you will have an indefinite loop
+that makes your program execute until the stack overflow error occurs.
+
+The `while` loop statement has an optional block: `continue`, which executes
+after each current iteration. In practice, the `continue` block is rarely used.
+
+If you want to execute a code block as long as the condition is `false`, you
+can use `until` statement.
+
+In case you want to check the condition at the end of each iteration, you use
+the `do...while` or `do...until` statement instead.
+
+To control the loop, you use the `next` and `last` statements.
+
+.Example
+
+Happy New Year Count Down program
+
+[source,perl]
+----
+#!/usr/bin/env perl
+use warnings;
+use strict;
+
+my $counter = 10;
+
+while ($counter > 0) {
+    print("$counter\n");
+    $counter--; # count down
+    sleep(1);   # pause program for 1 second
+    if ($counter == 0) {
+        print("Happy New Year!\n");
+    }
+}
+----
+
+.Let’s examine the code above in more detail
+****
+* First, declare a `$counter` variable and set its value to `10`.
+* Next, put a condition to make sure that the value of `$counter` is greater
+  than zero before entering into the loop.
+* Then, displayed the `$counter` and decreased its current value of one. We
+  used the `sleep()` function to pause the program for a second in each
+  iteration.
+* After that, use the _if statement_ to check if `$counter` is zero to print
+  the “Happy New Year” message. The code block inside the loop executes 10
+  times before the `$counter` is set to zero.
+* Finally, after each iteration, the `$counter` decreases, and its value is set
+  to zero at the 10th iteration. Perl terminated the loop.
+****
+
+.*_while loop_* with diamond operator *`<>`*
+
+You often use the while loop statement with the diamond operator `<>` to get
+the user’s input from the command line:
+
+[source,perl]
+----
+#!/usr/bin/perl
+use warnings;
+use strict;
+
+my $num;
+my @numbers = ();
+
+print "Enter numbers, each per line :\n";
+print "ctrl-z (windows) or ctrl-d(Linux) to exit\n>";
+
+while(my $input = <>) {
+    print(">");
+    chomp $input;
+    $num = int($input);
+    push(@numbers, $num);
+}
+
+print "You entered: @numbers\n";
+----
+
+.How it works
+
+* First, assign the user’s input to the `$input` variable using the diamond
+  operator (`<>`). Because it doesn’t specify any filehandle for the diamond
+  operator, Perl checks the special array `@ARGV`, which is empty in this case,
+  hence instructs the diamond operator to read from `STDIN` i.e., from the
+  keyboard.
+* Second, remove the newline character from the `$input` variable using the
+  `chomp()` function and convert `$input` to an integer.
+* Third, add the integer into the `@number` array.
+
+.*_while loop_* statement modifier
+
+let’s take a look at the following example:
+
+[source,perl]
+----
+#!/usr/bin/perl
+use warnings;
+use strict;
+
+my $i = 5;
+print($i--,"\n") while ($i > 0);
+----
+
+The `while` loop statement is placed after another statement.
+
+[NOTE]
+====
+*Perl evaluates the statements from right to left*.
+====
+
+It means that Perl evaluates the condition in the `while` statement at the
+beginning of each iteration.
+
+You use the `while` loop statement modifier only if you have one statement to
+execute repeatedly based on a condition like the above example.
 
