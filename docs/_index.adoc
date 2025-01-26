@@ -1,0 +1,11 @@
+---
+title: Documentations
+menu:
+  main:
+    name: Docs
+    weight: 3
+---
+
+=== first test
+
+This is a very test
