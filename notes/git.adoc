@@ -12,7 +12,7 @@ description: |
 
 = Git
 :toc:
-:icon-set: fi
+:icon-set: font
 :numbered:
 
 == init

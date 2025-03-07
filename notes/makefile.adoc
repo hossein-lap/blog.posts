@@ -5,7 +5,7 @@ date: "2024-10-08T09:41:28+03:30"
 language: en
 draft: false
 toc: true
-tags: ["Makefile", "Build System", "Go", "Golang"]
+tags: ["Makefile", "Build System"]
 description: |
    Makefile tips
 ---

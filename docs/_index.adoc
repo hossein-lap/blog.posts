@@ -1,9 +1,11 @@
 ---
 title: Documentations
-menu:
-  main:
-    name: Docs
-    weight: 3
+description: |
+    this is a simple test!
+# menu:
+#   main:
+#     name: Docs
+#     weight: 3
 ---
 
 === first test

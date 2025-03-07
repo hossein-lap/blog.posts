@@ -31,7 +31,7 @@ Okay, let's do it.
 .Test
 [source,c]
 ----
-// include::{home}/.cache/wal/colors-wal-st.h[]
+include::/home/hos/.cache/wal/colors-wal-st.h[]
 ----
 
 == Lists
@@ -149,7 +149,7 @@ section term:: definition of second term
 .Output
 ======
 [horizontal]
-first term:: definition of first term
+ghis is a very very first term:: definition of first term
 section term:: definition of second term
 ======
 ******

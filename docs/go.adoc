@@ -1,11 +1,11 @@
 ---
-title: "Go Programming Language"
+title: "Golang"
 # slug: "golang" 
 authors: ["Hossein Esmail"]
 date: "2024-04-02T22:30:03+03:30"
 language: en
 draft: false
-tags: ["Programming", "Go", "CLI", "Tools", "Backend"]
+tags: ["Go", "CLI"]
 # categories: ["dev", "golang"]
 # series: ["golang", "go"]
 description: |

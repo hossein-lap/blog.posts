@@ -1,9 +1,10 @@
 ---
+draft: false
 title: Notes
-menu:
-  main:
-    name: Notes
-    weight: 3
+# menu:
+#   main:
+#     name: Notes
+#     weight: 3
 ---
 
 === second test

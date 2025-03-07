@@ -1,5 +1,5 @@
 ---
-title: "Lua Progamming Language"
+title: "Lua"
 # slug: "lua"
 authors: ["Hossein Esmail"]
 date: "2024-04-02T22:30:09+03:30"

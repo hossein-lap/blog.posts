@@ -1,13 +1,13 @@
 ---
-title: "Golang stdlib - Webserver"
+title: "Webserver"
 authors: ["Hossein Esmail"]
 date: "2024-05-31T16:47:17+03:30"
 language: en
 toc: true
 draft: false
-tags: ["Go", "RESTFul", "HTTP", "JSON", "Redis", "SQL"]
+tags: ["Go", "HTTP", "JSON", "Redis", "SQL"]
 description: |
-    Create a web-server using just golang's stdlib `"net/http"`
+    Create a web-server using just golang's stdlib "net/http"
 ---
 
 = Golang stdlib - Webserver
