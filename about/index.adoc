@@ -2,7 +2,6 @@
 draft: false
 title: "About"
 date: 2023-03-29T22:14:09+03:30
-# description: "Who am I?"
 description: |
     For a very long time I've wanted to create a weblog to write and
     share some stuffs in it. There we go :D
