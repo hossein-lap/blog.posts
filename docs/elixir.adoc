@@ -9,8 +9,8 @@ tags: ["Functional", "Elixir"]
 # categories: ["functional programming"]
 # series: ["elixir"]
 description: |
-    Elixir is a function programming language which uses Erlang's VM (BEAM)
-    and has a very similar approach to Erlang
+    WIP: Elixir is a function programming language which uses Erlang's VM
+    (BEAM) and has a very similar approach to Erlang
 ---
 
 = Elixir

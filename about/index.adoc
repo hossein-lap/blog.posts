@@ -2,6 +2,7 @@
 draft: false
 title: "About"
 date: 2023-03-29T22:14:09+03:30
+# description: "Who am I?"
 description: |
     For a very long time I've wanted to create a weblog to write and
     share some stuffs in it. There we go :D
@@ -13,9 +14,28 @@ cover:
     hidden: true # only hide on current single page
 ---
 
-Hi I'm Hossein
+Welcome to my blog. I'm Hossein (aka "pj" or "hos") and I'll be posting my own
+notes, ideas, programs and other stuffs. I am a Programmer / DevOps Engineer
+with passions about open-source software and trees. Personally I enjoy
+minimalism and simpleness of things.
 
-Yet another minimalist person with a passion about Open Source Software.
+Also, I use vim btw ;)
+
+.*Bookshelf*
+____
+Languages::
+`Lua` `Go` `C` `Bash` `Perl`
+// `Ruby` `Elm` `Elixir`
+Tools::
+`Linux` `Git` `Docker` `Kubernetes` `Ansible` `QEMU/KVM` `Vim` `tmux`
+// `Helm` `OpenStack` `OpenShift` `Grafana` `Kafka` `FreeBSD`
+Writing::
+`LaTeX` `Groff` `Asciidoc` `Markdown`
+Hobbies::
+`Coding` `Writing` `Biking` `Volleyball` `Fishing` `Music` `Movies`
+____
+
+== The journey
 
 I was a Computer guy from my early days back in my 1st and 2nd grade.
 But all I did was playing video games. Until my dad came to me and said:
@@ -28,10 +48,10 @@ ____
 
 And that was it. It became the goal of my life :)
 
-== Programming
+=== Programming
 
 I have a solid background with writing and patching softwares in some
-programming languages (`C` `Lua` `Go` `Bash` `Python`) by _mostly_ using some
+programming languages (`C`, `Lua`, `Go`, `Bash`, `Python`) by _mostly_ using some
 tools that required a little programming knowledge to modify / configure or
 extend.
 
@@ -50,7 +70,7 @@ and documentations for them eventually. `Python` and `Go` are the ones that I
 really sat-down and read books / docs about them from the beginning of the
 journey.
 
-== Workflow
+=== Workflow
 
 A simple guy likes simplicity.
 
@@ -65,7 +85,7 @@ https://github.com/doomemacs/doomemacs[(doom) emacs].
 To be honest, I just need a POSIX-complaint shell, tmux, vim and git.
 All of these can be repleaced and I'm fine with their alternatives.
 
-=== Operating System
+==== Operating System
 
 Currently (as of June 21, 2024) I'm using NixOS as my daily-driver OS.
 
@@ -74,10 +94,17 @@ language / packages manager. I've wanted to learn a functional programming
 language anyway (I still might go for Elixir) so, that's might be it,
 who knows ;)
 
-Update (September 14, 2024): Back to my good old
-https://voidlinux.org[Void Linux] for a while now.
+====
+*Update 1 September 14, 2024*:
+Back to my good old
+  https://voidlinux.org[Void Linux] for a while now.
 
-I'm very fine and comfortable with most of other Linux Distributions out there.
+*Update 2 January 26, 2025*:
+I moved back to Debian(TM) based distros.
+  Currently running Linux Mint(TM) on my work machine and personal laptop.
+====
+
+I'm very fine and comfortable with most of other Linux(R) Distributions out there.
 I've started using Linux with Ubuntu 18.04, shortly moved to Linux mint 18
 and used it about a 6 to 10 months, after that I went for Manjaro xfce,
 installed it, used it for about 3 or so months and then, I installed Manjaro i3.
@@ -85,5 +112,5 @@ installed it, used it for about 3 or so months and then, I installed Manjaro i3.
 The emphasizing *Manjaro i3* is because it really changed the way I look at a
 GUI.
 
-== WIP
+=== WIP
 

@@ -3,9 +3,9 @@ draft: false
 title: "Resume"
 date: 2023-03-29T22:14:09+03:30
 # description: "Who am I?"
+numberd: true
 description: |
-    For a very long time I've wanted to create a weblog to write and
-    share some stuffs in it. There we go :D
+    Hos's resume
 cover:
     image: "/images/me/me-square.png" # image path/url
     alt: "profile-pic" # alt text
@@ -14,103 +14,172 @@ cover:
     hidden: true # only hide on current single page
 ---
 
-Welcome to my blog. I'm Hossein (aka "pj" or "hos") and I'll be posting my own
-notes, ideas, programs and other stuffs. I am a Programmer / DevOps Engineer
-with passions about open-source software and trees. Personally I enjoy
-minimalism and simpleness of things.
+=== Skills 
 
-Also, I use vim btw ;)
-
-.*Bookshelf*
 ____
-Languages::
-`Lua`, `Go`, `C`, `Bash`, `Perl`
-// `Ruby`, `Elm`, `Elixir`
-Tools::
-`Linux`, `Git`, `Docker`, `Kubernetes`, `Ansible`, `QEMU/KVM`, `Vim`, `tmux`
-// `Helm`, `OpenStack`, `OpenShift`, `Grafana`, `Kafka`, `FreeBSD`
-Writing::
-`LaTeX`, `Groff`, `Asciidoc`, `Markdown`
-Hobbies::
-`Coding`, `Writing`, `Biking`, `Volleyball`, `Fishing`, `Music`, `Movies`
+[horizontal]
+Programming Languages::
+`Bash`
+`C`
+`Go`
+`Lua`
+`Perl`
+// `Ruby` `Elm` `Elixir`
+
+Tools / Technologies::
+`Ansible`
+`Docker`
+`Git / GitOps`
+`Gitlab CI`
+`Jenkins`
+`Jira`
+`Kubernetes`
+`Linux`
+`QEMU/KVM`
+`Vim`
+`proxmox`
+`tmux`
+// `Helm` `OpenStack` `OpenShift` `Grafana` `Kafka` `FreeBSD`
+
+Documentation::
+`Asciidoc`
+`Groff`
+`LaTeX`
+`Markdown`
+`Typst`
+
+// Hobbies::
+// `Biking`
+// `Coding`
+// `Fishing`
+// `Movies`
+// `Music`
+// `Volleyball`
+// `Writing`
+
 ____
 
-== The journey
+=== Experiences
 
-I was a Computer guy from my early days back in my 1st and 2nd grade.
-But all I did was playing video games. Until my dad came to me and said:
-
-[qoute]
+*Linux System Administrator*
 ____
-Don't just play video games kid, it can do much more than that. try to
-learn it.
+[horizontal]
+Self-emplyed:: Hybrid
+Used Technologies::
+`Ansible`
+`Bash`
+`Docker`
+`Git`
+`Gitlab CI`
+`QEMU/KVM`
+`MySQL`
+`SQLite`
 ____
 
-And that was it. It became the goal of my life :)
-
-=== Programming
-
-I have a solid background with writing and patching softwares in some
-programming languages (`C`, `Lua`, `Go`, `Bash`, `Python`) by _mostly_ using some
-tools that required a little programming knowledge to modify / configure or
-extend.
-
-.Let me give you an example:
+*Virtualization Specialist / Automation*
+____
 ****
-I wanted to learn Python language so I needed to take some notes, I decided to
-use LaTeX for that matter and my notes were getting dirty, I was losing some of
-them, they're getting out-of-hand, then I've decided to use git for managing
-them.
+[horizontal]
+RPS Cloud:: Remote
+Used Technologies::
+`Ansible`
+`Bash`
+`Cloud-init`
+`IpTables`
+`Linux`
+`Nginx`
+`Proxmox`
 ****
+____
 
-I learned `C` by patching / configuring the https://suckless.org[suckless]
-tools, `Lua` by configuring https://neovim.io[neovim] and writing plugins for it, `Bash` by using
-it daily with "Live inside terminal" approach. of cource I've also read books
-and documentations for them eventually. `Python` and `Go` are the ones that I
-really sat-down and read books / docs about them from the beginning of the
-journey.
+*DevOps Engineer*
+____
+****
+[horizontal]
+Sina Com. Systems:: Full-time
+Used Technologies::
+`Ansible`
+`Bash`
+`Docker`
+`Git`
+`Golang`
+`Jenkins`
+`Linux`
+`Python`
+`QEMU/KVM`
+`LVM`
+****
+____
 
-=== Workflow
+=== Projects
 
-A simple guy likes simplicity.
+*REST WebServer with fault tolerance*
+____
+****
+[horizontal]
+Github:: https://github.com/hossein-lap/example-test-project-day-01[hossein-lap/example-test-project-day-01]
+Technologies:: `Golang` `Docker` `Kubernetes` `Redis` `MySQL`
+Description:: Simple web-app to have access the MySQL database, Redis cache and
+file system.
+****
+____
 
-I use https://st.suckless.org[st] as my terminal emulator.
-I have https://vim.org[vim] (or https://neovim.io[neovim] I'm fine with both)
-as my text editor in my pocket, https://github.com/tmux/tmux/wiki[tmux] as
-multiplexer / session-manager by my side, I have a home in any window manger
-(but I perfer it to be inside https://dwm.suckless.org[dwm] over the other).
-Also for some bidirectional papers and documents I've let the little evil in,
-https://github.com/doomemacs/doomemacs[(doom) emacs].
+*Automated resume CI*
+____
+****
+[horizontal]
+Gitlab:: https://gitlab.com/hos-workflow/resume-lua-latex[hos-workflow/resume-lua-latex]
+Technologies:: `Lua` `LaTeX` `Gitlab CI`
+Description:: Create my resume automatically using myown LaTeX template which
+is generated using the *gen.lua* script.
+****
+____
 
-To be honest, I just need a POSIX-complaint shell, tmux, vim and git.
-All of these can be repleaced and I'm fine with their alternatives.
+*Personal bash / perl scripts*
+____
+****
+[horizontal]
+Gitlab:: https://gitlab.com/hos-workflow/scripts[hos-workflow/scripts]
+Technologies:: `Bash` `dmenu` `fzf` `Perl` `ImageMagick`
+Description:: Various automated tasks were done here:
+* Take screenshot using *ImageMagick*.
+** Plus many more ImageMagick scripts (e.g add shadow border, round border, etc.)
+* Run headless *QEMU/KVM* virtua machines with VNC support.
+* Using *stow* to manage symbolic-links.
+* Ruby script to use *Asciidoctor* ruby API.
+* Simple system monitor using *ps* command with *dmenu*.
+* Manage *block devices* using *lsblk* and *dmenu*.
+****
+____
 
-==== Operating System
+*Neovim plugin*
+____
+[horizontal]
+Github:: https://github.com/hossein-lap/colt[hossein-lap/colt]
+Technologies:: `Lua`
+Description:: Simple wrapper funtion around neovim's *term* funtionality and
+the CLI tools to run / compile current buffer.
+____
 
-Currently (as of June 21, 2024) I'm using NixOS as my daily-driver OS.
+=== Languages
 
-I enjoy NixOS's approach and its reproducability, just starting to like Nix
-language / packages manager. I've wanted to learn a functional programming
-language anyway (I still might go for Elixir) so, that's might be it,
-who knows ;)
+____
+[horizontal]
+English:: `Professional`
+____
 
-====
-*Update 1 September 14, 2024*:
-Back to my good old
-  https://voidlinux.org[Void Linux] for a while now.
+=== Certifications
 
-*Update 2 January 26, 2025*:
-I moved back to Debian(TM) based distros.
-  Currently running Linux Mint(TM) on my work machine and personal laptop.
-====
+____
+*LPIC 3 - Virtualization and Containerization*: `2022`
+____
 
-I'm very fine and comfortable with most of other Linux(R) Distributions out there.
-I've started using Linux with Ubuntu 18.04, shortly moved to Linux mint 18
-and used it about a 6 to 10 months, after that I went for Manjaro xfce,
-installed it, used it for about 3 or so months and then, I installed Manjaro i3.
+=== Education
 
-The emphasizing *Manjaro i3* is because it really changed the way I look at a
-GUI.
+____
+[horizontal]
+Computer Science:: Bachelors degree from `2020` to `2024`
+____
 
-=== WIP
+
 

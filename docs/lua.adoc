@@ -10,8 +10,8 @@ tags: ["Lua", "Embedded", "Game", "Plugin"]
 # categories: ["Progamming"]
 # series: ["Lua"]
 description: |
-    Lua is a powerful, fast, lightweight and embeddable programming language.
-    It is used by many frameworks, games and other applications.
+    WIP: Lua is a powerful, fast, lightweight and embeddable programming
+    language. It is used by many frameworks, games and other applications.
 ---
 
 = Lua Progamming Language

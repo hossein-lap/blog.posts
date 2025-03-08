@@ -149,7 +149,7 @@ section term:: definition of second term
 .Output
 ======
 [horizontal]
-ghis is a very very first term:: definition of first term
+first term:: definition of first term
 section term:: definition of second term
 ======
 ******

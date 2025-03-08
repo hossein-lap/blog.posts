@@ -9,8 +9,8 @@ tags: ["Go", "CLI"]
 # categories: ["dev", "golang"]
 # series: ["golang", "go"]
 description: |
-    go is a very simple programming language with a strong standard library and
-    useful features.
+    WIP: go is a very simple programming language with a strong standard
+    library and useful features.
 ---
 
 = Go Programming Language

@@ -7,7 +7,7 @@ draft: false
 toc: true
 tags: [ "Vim", "vim-motions", "config", "vimscript" ]
 description: |
-   Vim the text editor.
+   WIP: Vim the text editor.
 ---
 
 = Vim
