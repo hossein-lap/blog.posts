@@ -103,9 +103,9 @@ The following example illustrates a block in Perl:
 [source,perl]
 ----
 {
-	$a = 1;
-	$a = $a + 1;
-	print($a);
+    $a = 1;
+    $a = $a + 1;
+    print($a);
 }
 ----
 
@@ -293,8 +293,8 @@ $color = 'red';
 print("my favorite #1 color is " . $color . "\n");
 # another block
 {
-	my $color = 'blue';
-	print("my favorite #2 color is " . $color . "\n");  
+    my $color = 'blue';
+    print("my favorite #2 color is " . $color . "\n");  
 }
 # for checking
 print("my favorite #1 color is " . $color . "\n");
@@ -1578,7 +1578,7 @@ use strict;
 
 my ($l_curr, $f_curr, $l_amount, $f_amount);
 
-my %rates = (	
+my %rates = (    
      USD => 1,
      YPY => 82.25,
      EUR => 0.78,
@@ -1589,7 +1589,7 @@ my %rates = (
 # print supported currencies
 print("Supported currency:\n");
 for (keys %rates) {
-	print(uc($_),"\n");
+    print(uc($_),"\n");
 }
 
 # get inputs from users:
@@ -1667,7 +1667,7 @@ otherwise, it skips the code block.
 my $a = 10;
 
 unless($a <= 0){
-    print("a is greater than 0\n")	                   
+    print("a is greater than 0\n")                       
 }
 ----
 
@@ -1697,7 +1697,7 @@ my $a = 10;
 unless ($a >= 0) {
     print("a is less than 0\n");                   
 } else {
-    print("a is greater than or equal 0\n");	                   
+    print("a is greater than or equal 0\n");                       
 }
 ----
 ....
@@ -1731,7 +1731,7 @@ unless ($a > 0) {
 } elsif ($a == 0) {
     print("a is 0\n");                   
 } else {
-    print("a is greater than 0\n");	                   
+    print("a is greater than 0\n");                       
 }
 ----
 

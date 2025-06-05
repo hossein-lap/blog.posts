@@ -92,13 +92,13 @@ On branch notes/git
 Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
   (use "git restore <file>..." to discard changes in working directory)
-	modified:   git.adoc
+    modified:   git.adoc
 
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
-	.session.vim/
-	asciidoctor-theme.yml
-	git.pdf
+    .session.vim/
+    asciidoctor-theme.yml
+    git.pdf
 
 no changes added to commit (use "git add" and/or "git commit -a")
 ....
@@ -274,8 +274,8 @@ origin
 git remote -v
 ----
 ....
-origin	git@github.com:hossein-lap/blog.posts.git (fetch)
-origin	git@github.com:hossein-lap/blog.posts.git (push)
+origin    git@github.com:hossein-lap/blog.posts.git (fetch)
+origin    git@github.com:hossein-lap/blog.posts.git (push)
 ....
 
 .Working with remotes
@@ -318,14 +318,14 @@ your github/gitlab account. Look for a `*.pub` file in your `~/.ssh` directory.
 
 .ssh remote URL:
 ....
-origin	git@github.com:hossein-lap/blog.posts.git (fetch)
-origin	git@github.com:hossein-lap/blog.posts.git (push)
+origin    git@github.com:hossein-lap/blog.posts.git (fetch)
+origin    git@github.com:hossein-lap/blog.posts.git (push)
 ....
 
 .https remote URL:
 ....
-origin	https://github.com/hossein-lap/blog.posts (fetch)
-origin	https://github.com/hossein-lap/blog.posts (push)
+origin    https://github.com/hossein-lap/blog.posts (fetch)
+origin    https://github.com/hossein-lap/blog.posts (push)
 ....
 
 == clone
@@ -610,7 +610,6 @@ git restore --source=HEAD .
 
 The above command will remove all changes on the current working directory
 which are not in neither staging area nor have been committed.
-
 The `.` means *current working directory*. You can replace it with file name(s)
 or (some) directory.
 
@@ -670,7 +669,6 @@ This process is called *patching* or *applying patch*.
 ====
 When you are applying patch(es), you must be at the *exact directory* that
 you've get the diff file from.
-
 On the other words, applying patches only works when
 you are applying them at the same *root directory* of getting the patch (diff
 file).
@@ -691,11 +689,11 @@ index 16ab52b..db20550 100644
  NAME = ttr
  
  all:
--	asciidoctor -a stylesheet=my-stylesheet.css ttr.adoc
--	# asciidoctor -a linkcss -a copycss README.adoc
-+	# asciidoctor -a stylesheet=my-stylesheet.css ttr.adoc
-+	asciidoctor -a linkcss -a copycss ttr.adoc
- 	asciidoctor-pdf ttr.adoc --theme hos.yml
+-    asciidoctor -a stylesheet=my-stylesheet.css ttr.adoc
+-    # asciidoctor -a linkcss -a copycss README.adoc
++    # asciidoctor -a stylesheet=my-stylesheet.css ttr.adoc
++    asciidoctor -a linkcss -a copycss ttr.adoc
+     asciidoctor-pdf ttr.adoc --theme hos.yml
 diff --git a/default-theme.yml b/default-theme.yml
 index f23711b..889785a 100644
 --- a/default-theme.yml
@@ -847,7 +845,7 @@ if [ "${check_branch}" -gt 0 ]; then
         git worktree add "${i}" "${i}"
     done
 else
-	i=$(git --no-pager branch | awk '{print $NF;}')
+    i=$(git --no-pager branch | awk '{print $NF;}')
     git worktree add "${i}" "${i}"
 fi
 

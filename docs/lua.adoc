@@ -435,7 +435,8 @@ Type:: Description
 `function`:: Represents a method that is written in C or Lua.
 `userdata`:: Represents arbitrary C data.
 `thread`:: Represents independent threads of execution and it is used to implement coroutines.
-`table`:: Represent ordinary arrays, symbol tables, sets, records, graphs, trees, etc., and implements associative arrays. It can hold any value (except nil).
+`table`:: Represent ordinary arrays, symbol tables, sets, records, graphs,
+          trees, etc., and implements associative arrays. It can hold any value (except nil).
 
 Usually, when we use a single variable for different types, the result is messy code.
 However, sometimes the judicious use of this facility is helpful,

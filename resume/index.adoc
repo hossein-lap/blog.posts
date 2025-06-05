@@ -16,6 +16,7 @@ cover:
 
 === Skills 
 
+****
 ____
 [horizontal]
 Programming Languages::
@@ -37,7 +38,7 @@ Tools / Technologies::
 `Linux`
 `QEMU/KVM`
 `Vim`
-`proxmox`
+`Proxmox`
 `tmux`
 // `Helm` `OpenStack` `OpenShift` `Grafana` `Kafka` `FreeBSD`
 
@@ -58,13 +59,15 @@ Documentation::
 // `Writing`
 
 ____
+****
 
 === Experiences
 
-*Linux System Administrator*
+.*Linux System Administrator*
+****
 ____
 [horizontal]
-Self-emplyed:: Hybrid
+Self-employed:: Hybrid
 Used Technologies::
 `Ansible`
 `Bash`
@@ -75,26 +78,27 @@ Used Technologies::
 `MySQL`
 `SQLite`
 ____
-
-*Virtualization Specialist / Automation*
-____
 ****
+
+.*Virtualization Specialist / Automation*
+****
+____
 [horizontal]
 RPS Cloud:: Remote
 Used Technologies::
 `Ansible`
 `Bash`
 `Cloud-init`
-`IpTables`
+`Iptables`
 `Linux`
 `Nginx`
 `Proxmox`
-****
 ____
+****
 
-*DevOps Engineer*
-____
+.*DevOps Engineer*
 ****
+____
 [horizontal]
 Sina Com. Systems:: Full-time
 Used Technologies::
@@ -108,78 +112,86 @@ Used Technologies::
 `Python`
 `QEMU/KVM`
 `LVM`
-****
 ____
+****
 
 === Projects
 
-*REST WebServer with fault tolerance*
-____
+.*REST WebServer with fault tolerance*
 ****
+____
 [horizontal]
 Github:: https://github.com/hossein-lap/example-test-project-day-01[hossein-lap/example-test-project-day-01]
 Technologies:: `Golang` `Docker` `Kubernetes` `Redis` `MySQL`
 Description:: Simple web-app to have access the MySQL database, Redis cache and
 file system.
-****
 ____
+****
 
-*Automated resume CI*
-____
+.*Automated resume CI*
 ****
+____
 [horizontal]
 Gitlab:: https://gitlab.com/hos-workflow/resume-lua-latex[hos-workflow/resume-lua-latex]
 Technologies:: `Lua` `LaTeX` `Gitlab CI`
-Description:: Create my resume automatically using myown LaTeX template which
+Description:: Create my resume automatically using my own LaTeX template which
 is generated using the *gen.lua* script.
-****
 ____
+****
 
-*Personal bash / perl scripts*
-____
+.*Personal bash / perl scripts*
 ****
+____
 [horizontal]
 Gitlab:: https://gitlab.com/hos-workflow/scripts[hos-workflow/scripts]
 Technologies:: `Bash` `dmenu` `fzf` `Perl` `ImageMagick`
 Description:: Various automated tasks were done here:
 * Take screenshot using *ImageMagick*.
 ** Plus many more ImageMagick scripts (e.g add shadow border, round border, etc.)
-* Run headless *QEMU/KVM* virtua machines with VNC support.
+* Run headless *QEMU/KVM* virtual machines with VNC support.
 * Using *stow* to manage symbolic-links.
 * Ruby script to use *Asciidoctor* ruby API.
 * Simple system monitor using *ps* command with *dmenu*.
 * Manage *block devices* using *lsblk* and *dmenu*.
-****
 ____
+****
 
-*Neovim plugin*
+.*Neovim plugin*
+****
 ____
 [horizontal]
 Github:: https://github.com/hossein-lap/colt[hossein-lap/colt]
 Technologies:: `Lua`
-Description:: Simple wrapper funtion around neovim's *term* funtionality and
+Description:: Simple wrapper function around neovim's *term* functionality and
 the CLI tools to run / compile current buffer.
 ____
+****
 
 === Languages
 
+****
 ____
 [horizontal]
 English:: `Professional`
 ____
+****
 
 === Certifications
 
+****
 ____
 *LPIC 3 - Virtualization and Containerization*: `2022`
 ____
+****
 
 === Education
 
+****
 ____
 [horizontal]
 Computer Science:: Bachelors degree from `2020` to `2024`
 ____
+****
 
 
 

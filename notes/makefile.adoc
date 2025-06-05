@@ -171,37 +171,37 @@ The Makefile is organized into several sections, each with its own set of target
 ## db/connect: create to the local database
 .PHONY: db/connect
 db/connect:
-	sqlite3 db.sqlite
+    sqlite3 db.sqlite
 
 ## db/migrations/new name=$1: create a new migration
 .PHONY: db/migrations/new
 db/migrations/new:
-	go run -tags 'sqlite3' github.com/golang-migrate/migrate/v4/cmd/migrate@latest create -seq -ext=.sql -dir=./resources/migrations ${name}
+    go run -tags 'sqlite3' github.com/golang-migrate/migrate/v4/cmd/migrate@latest create -seq -ext=.sql -dir=./resources/migrations ${name}
 
 ## db/migrations/up: apply all up migrations
 .PHONY: db/migrations/up
 db/migrations/up:
-	go run -tags 'sqlite3' github.com/golang-migrate/migrate/v4/cmd/migrate@latest -path=./resources/migrations -database="sqlite3://db.sqlite" up
+    go run -tags 'sqlite3' github.com/golang-migrate/migrate/v4/cmd/migrate@latest -path=./resources/migrations -database="sqlite3://db.sqlite" up
 
 ## db/migrations/down: apply all down migrations
 .PHONY: db/migrations/down
 db/migrations/down: confirm
-	go run -tags 'sqlite3' github.com/golang-migrate/migrate/v4/cmd/migrate@latest -path=./resources/migrations -database="sqlite3://db.sqlite" down
+    go run -tags 'sqlite3' github.com/golang-migrate/migrate/v4/cmd/migrate@latest -path=./resources/migrations -database="sqlite3://db.sqlite" down
 
 ## db/migrations/goto version=$1: migrate to a specific version number
 .PHONY: db/migrations/goto
 db/migrations/goto: confirm
-	go run -tags 'sqlite3' github.com/golang-migrate/migrate/v4/cmd/migrate@latest -path=./resources/migrations -database="sqlite3://db.sqlite" goto ${version}
+    go run -tags 'sqlite3' github.com/golang-migrate/migrate/v4/cmd/migrate@latest -path=./resources/migrations -database="sqlite3://db.sqlite" goto ${version}
 
 ## db/migrations/force version=$1: force database migration version number
 .PHONY: db/migrations/force
 db/migrations/force: confirm
-	go run -tags 'sqlite3' github.com/golang-migrate/migrate/v4/cmd/migrate@latest -path=./resources/migrations -database="sqlite3://db.sqlite" force ${version}
+    go run -tags 'sqlite3' github.com/golang-migrate/migrate/v4/cmd/migrate@latest -path=./resources/migrations -database="sqlite3://db.sqlite" force ${version}
 
 ## db/migrations/version: print the current migration version
 .PHONY: db/migrations/version
 db/migrations/version:
-	go run -tags 'sqlite3' github.com/golang-migrate/migrate/v4/cmd/migrate@latest -path=./resources/migrations -database="sqlite3://db.sqlite" version
+    go run -tags 'sqlite3' github.com/golang-migrate/migrate/v4/cmd/migrate@latest -path=./resources/migrations -database="sqlite3://db.sqlite" version
 ----
 ****
 

@@ -597,7 +597,7 @@ kubia.example.com to that IP or you can setup hosts: add the following line to
 
 .`/etc/hosts`
 ----
-192.168.99.100		kubia.example.com
+192.168.99.100        kubia.example.com
 ----
 
 So you can access the service at http://kubia.example.com using a browser or

@@ -36,41 +36,48 @@ The core Grafana stack consists of *Mimir*, *Loki*, *Tempo*, and *Grafana*; the
 acronym *LGTM* is often used to refer to this tech stack.
 
 .Mimir
+****
 Mimir is a *Time Series Database* (*TSDB*) for the storage of metric data. It
 uses low-cost object storage such as S3, GCS, or Azure Blob Storage.
 Mimir is a fully Prometheus-compatible solution that addresses the common
 scalability problems encountered with storing and searching huge quantities of
 metric data.
 
+[TIP]
 ====
 An active time series is a metric with a value and unique labels that has
 reported a sample in the last 20 minutes.
 ====
+****
 
 .Loki
+****
 Loki is a set of components that offer a full feature logging stack. Loki uses
 lower-cost object storage such as S3 or GCS, and only indexes label metadata.
-
 Log aggregation tools typically use two data structures to store log data. An
 index that contains references to the location of the raw data paired with
 searchable metadata, and the raw data itself stored in a compressed form.
 
+[TIP]
 ====
 Loki differs from a lot of other log aggregation tools by keeping the index
 data relatively small and scaling the search functionality by using horizontal
 scaling of the querying component.
 ====
+****
 
 .Tempo
+****
 Tempo is a storage backend for high-scale distributed trace telemetry, with the
 aim of sampling 100% of the read path. Like Loki and Mimir, it leverages
 lower-cost object storage such as S3, GCS, or Azure Blob Storage.
-
 Tempo also offers the ability to generate metrics from spans as they are
 ingested; these metrics can be written to any backend that supports Prometheus
 remote write.
+****
 
 .Grafana
+****
 Grafana has been a staple for fantastic visualization of data since 2014. It
 has targeted the ability to connect to a huge variety of data sources from
 TSDBs to relational databases and even other observability tools. Grafana has
@@ -78,11 +85,14 @@ over 150 data source plugins available. Grafana has a huge community using it
 for many different purposes. This community supports over 6,000 dashboards,
 which means there is a starting place for most available technologies with
 minimal time to value.
+****
 
 .Grafana Agent
+****
 Grafana Agent is a collection of tools for collecting logs, metrics, and
 traces. There are many other collection tools that Grafana integrates well
 with.
+****
 
 === Grafana Enterprise plugins
 
@@ -116,15 +126,17 @@ companies in this space to release new products that complement the tools we've
 already discussed. 
 
 .Faro
+****
 *Grafana Faro* is a JavaScript agent that can be added to frontend web
 applications. The project allows for *real user monitoring* (*RUM*) by
 collecting telemetry from a browser.
-
 By adding RUM into an environment where backend applications and infrastructure
 are instrumented, observers gain the ability to traverse data from the full
 application stack.
+****
 
 .k6
+****
 *k6* is a load testing tool that provides both a packaged tool to run in your
 own infrastructure and a cloud *Software as a Service* (*SaaS*) offering. Load
 testing, especially as part of a CI/CD pipeline, really enables teams to see
@@ -132,13 +144,16 @@ how their application will perform under load, and evaluate optimizations and
 refactoring. Paired with other detailed analysis tools such as Pyroscope, the
 level of visibility and accessibility to non-technical members of the team can
 be astounding. 
+****
 
 .Pyroscope
+****
 *Pyroscope* is a tool that enable teams to engage in the continuous profiling
 of system resource use by applications (CPU, memory, etc.). Pyroscope
 advertises that with a minimal overhead of ~2-5% of performance, they can
 collect samples as frequently as every 10 seconds. *Phlare* is a Grafana Labs
 project started in 2022, and the two projects have now merged.
+****
 
 == Common log formats
 
@@ -146,7 +161,6 @@ Logs support performance and capacity monitoring in infrastructure, bug
 detection in software, root cause analysis, user behavior tracking, and more.
 Following certain guidelines will help your future self when you need to
 analyze logs.
-
 Log formats usually identify if they are structured or unstructured, the data
 types used in them, and if any encoding or delimitation is being used.
 
@@ -154,7 +168,6 @@ types used in them, and if any encoding or delimitation is being used.
 
 It does not matter what your logs look like and they can come in structured,
 semi-structured, or unstructured formats.
-
 when designing and building observability solutions, it’s important to
 understand the log formats you are working with. This ensures that you can
 ingest, parse, and store the data in a way that it can be used effectively.
@@ -263,6 +276,7 @@ additional enrichment data.
 | It combines the event timestamp and source hostname
 
 | CEF header
+
 a| It combines the following pieces of metadata:
 
 * Software version
