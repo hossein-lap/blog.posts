@@ -1,0 +1,34 @@
+---
+draft: false
+title: |
+    primejade
+date: "2024-05-26T22:08:49+03:30"
+menu:
+  main:
+    name: P J
+    weight: 1
+---
+
+// ====== The Hacker
+// [quote,Eric S. Raymond,The Art of Unix Programming]
+// ____
+// People are more important than code.
+// ____
+//
+// ====== The Hobbist
+// [quote,Linus Torvalds,Creator of Linux]
+// ____
+// Talk is cheap. Show me the code.
+// ____
+//
+// ====== The Game Dev
+// [quote,John Carmack,Game Developer]
+// ____
+// Once you get the hang of it, programming is a lot like riding a bike.
+// ____
+//
+// ====== The Father
+// [quote,Dennis Ritchie,Computer Scientist]
+// ____
+// The only way to learn a new programming language is by writing programs in it.
+// ____

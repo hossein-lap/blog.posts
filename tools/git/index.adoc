@@ -14,6 +14,7 @@ description: |
 :toc:
 :icon-set: font
 :numbered:
+:rootdir: /home/hos/dev/hossein-lap/blog.posts.git/master/docs/git
 
 == init
 
@@ -23,6 +24,10 @@ This will create a *local* git repository.
 ----
 git init
 ----
+
+== Testing
+
+include::{rootdir}/tmp.adoc[]
 
 Also you can git it an *initial branch name*:
 
@@ -43,7 +48,7 @@ user.email = your@email.com  # critical
 core.editor = vim      # default git's text editor
 core.autocrlf = input  # for fixing EOL character across multiple OSs
 commit.gpgsign = true  # signed commits using GPG
-tag.gpgSign = true     #   //   tags     //   // 
+tag.gpgSign = true     #   //   tags     //   //
 merge.ff = true        # fast-forward only when merging/pulling/etc..
 init.defaultBranch = master  # default branch for `git init`
 color.pager = true           # colored output e.g `git log --oneline`
@@ -59,7 +64,7 @@ git config --global merge.ff true
 
 == staging area
 
-Middle stage between _Untracked_ files and _Tracked_ files. 
+Middle stage between _Untracked_ files and _Tracked_ files.
 
 [source,bash]
 ----
@@ -489,11 +494,11 @@ git log --oneline --all --graph
 ----
 ....
 *   aa604f7 WIP on notes/git: f80c365 more / better notes for docker
-|\  
+|\
 | * 977460d index on notes/git: f80c365 more / better notes for docker
-|/  
+|/
 | * afd0009 Add array section
-|/  
+|/
 * f80c365 more / better notes for docker
 * 6e057f8 import contents
 * a9555db Initial commit
@@ -503,11 +508,11 @@ See all the new forks and diversions from the commits?
 
 ....
 *   aa604f7 WIP on notes/git: f80c365 more / better notes for docker
-|\  
+|\
 | * 977460d index on notes/git: f80c365 more / better notes for docker
-|/  
+|/
 | * afd0009 Add array section
-|/  
+|/
 * f80c365 more / better notes for docker
 ....
 
@@ -610,6 +615,7 @@ git restore --source=HEAD .
 
 The above command will remove all changes on the current working directory
 which are not in neither staging area nor have been committed.
+
 The `.` means *current working directory*. You can replace it with file name(s)
 or (some) directory.
 
@@ -669,6 +675,7 @@ This process is called *patching* or *applying patch*.
 ====
 When you are applying patch(es), you must be at the *exact directory* that
 you've get the diff file from.
+
 On the other words, applying patches only works when
 you are applying them at the same *root directory* of getting the patch (diff
 file).
@@ -687,7 +694,7 @@ index 16ab52b..db20550 100644
 +++ b/Makefile
 @@ -1,6 +1,6 @@
  NAME = ttr
- 
+
  all:
 -    asciidoctor -a stylesheet=my-stylesheet.css ttr.adoc
 -    # asciidoctor -a linkcss -a copycss README.adoc
@@ -832,7 +839,7 @@ if [ -z "${output}" ]; then
 fi
 
 # start
-git clone ${args} --bare git@${input} ${output} 
+git clone ${args} --bare git@${input} ${output}
 cd ${output}
 mkdir .bare
 mv * .bare

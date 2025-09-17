@@ -1,0 +1,8 @@
+---
+draft: false
+title: |
+    Perl Programming
+date: "2024-05-26T22:08:49+03:30"
+---
+
+Yup :)

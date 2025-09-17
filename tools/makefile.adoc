@@ -23,7 +23,7 @@ aliases for Go commands that are long or difficult to remember.
 The exact contents of the Makefile changes from project to project. It's
 generic enough that you should be able to use it as-is for almost all projects.
 
-== Gist 
+== Gist
 [soucre,makefile]
 ----
 # Change these variables as necessary.
@@ -58,7 +58,7 @@ no-dirty:
 audit: test
     go mod tidy -diff
     go mod verify
-    test -z "$(shell gofmt -l .)" 
+    test -z "$(shell gofmt -l .)"
     go vet ./...
     go run honnef.co/go/tools/cmd/staticcheck@latest -checks=all,-ST1000,-U1000 ./...
     go run golang.org/x/vuln/cmd/govulncheck@latest ./...

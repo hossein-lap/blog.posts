@@ -1,0 +1,169 @@
+#!/usr/bin/env perl
+
+use strict;
+use warnings;
+use Time::Piece;
+use Time::Local;
+use Getopt::Long;
+use File::Basename;
+
+# Default values
+my ($filename, $title, $author, $date, $tags, $lang, $desc);
+my $help = 0;
+my $force = 0;
+my $intractive = 0;
+
+# Command-line arguments
+GetOptions(
+    'new=s'        => \$filename,
+    'title=s'      => \$title,
+    'author=s'     => \$author,
+    'date=s'       => \$date,
+    'tags=s'       => \$tags,
+    'lang=s'       => \$lang,
+    'desc=s'       => \$desc,
+    'h|help'       => \$help,
+    'f|force'      => \$force,
+    'i|intractive' => \$intractive,
+);
+
+# helpers {{{
+
+# print help {{{
+# Help subroutine
+sub print_help {
+    my $prompt = basename($0);
+    print <<"USAGE";
+Usage: perl $prompt [OPTIONS]
+
+Options:
+  --new      Blog post filename
+  --title    Title of the document
+  --author   Author name
+  --date     Date in ISO 8601 format (e.g., 2024-10-07T15:10:23+03:30)
+  --tags     Comma-separated tags (e.g., Bash,Shell,CLI)
+  --lang     Document language (e.g., en)
+  --desc     Short description (use quotes if it has spaces)
+  --help     Show this help message and exit
+
+USAGE
+    exit;
+}
+
+# }}}
+
+# title case {{{
+sub title_case {
+    my ($text) = @_;
+    $text =~ s/\b(\w)/\U$1/g;
+    return $text;
+}
+# }}}
+
+# get date {{{
+sub get_date {
+    my ($date_str) = @_;
+
+    # Use current time if no date is provided
+    my $t = defined $date_str
+        ? Time::Piece->strptime($date_str, '%Y-%m-%d')
+        : localtime;
+
+    # Get current local time components
+    my $now = localtime;
+
+    # Add the current time part to the given date
+    $t = Time::Piece->strptime($t->ymd . ' ' . $now->hms, '%Y-%m-%d %H:%M:%S');
+
+    # Compute timezone offset
+    my $offset_sec = timegm($t->sec, $t->min, $t->hour, $t->mday, $t->_mon, $t->year - 1900)
+                   - timelocal($t->sec, $t->min, $t->hour, $t->mday, $t->_mon, $t->year - 1900);
+
+    my $sign = $offset_sec < 0 ? '-' : '+';
+    $offset_sec = abs($offset_sec);
+    my $offset_hour = int($offset_sec / 3600);
+    my $offset_min  = ($offset_sec % 3600) / 60;
+    my $tz_offset = sprintf("%s%02d:%02d", $sign, $offset_hour, $offset_min);
+
+    return $t->strftime("%Y-%m-%dT%H:%M:%S") . $tz_offset;
+}
+# }}}
+
+# intractive menu {{{
+sub ask {
+    my ($label, $default) = @_;
+    print $default ? "$label [$default]: " : "$label: ";
+    chomp(my $input = <STDIN>);
+    return $input ne '' ? $input : $default;
+}
+
+sub _menu {
+    # check if file exits + overwrite or not
+    if (-e $filename) {
+        unless ($force) {
+            print "Blog post '$filename' already exists. No changes made.\n";
+            exit;
+        }
+    }
+
+    $title  //= ask("Title") if !defined($title) || $title eq '';;
+    if ($intractive) {
+        $author = ask("Author", 'Hossein Esmail') if !defined($author) || $author eq '';
+        $date   = ask("Date (leave blank for now)", get_date()) if !defined($date) || $date eq '';
+        $lang   = ask("Language (e.g., en)", 'en') if !defined($lang) || $lang eq '';
+    } else {
+        $author = 'Hossein Esmail' if !defined($author) || $author eq '';
+        $date   = get_date()       if !defined($date)   || $date eq '';
+        $lang   = 'en'             if !defined($lang)   || $lang eq '';
+    }
+    $desc   = ask("Description", "") if !defined($desc) || $desc eq '';
+    $tags   = ask("Tags (comma-separated)", '') if !defined($tags) || $tags eq '';
+
+    # title case
+    $title  =~ s/\b(\w)/\U$1/g;
+    $author =~ s/\b(\w)/\U$1/g;
+    $tags   =~ s/\b(\w)/\U$1/g;
+
+    # tags as json array
+    my @tags = split(/\s*,\s*/, $tags);
+    my $tags_fmt = join(", ", map { qq("$_") } @tags);
+
+    # write to file
+    open my $fh, '>', $filename or die "Cannot write to $filename: $!";
+
+print $fh <<"EOF";
+---
+title: "$title"
+authors: ["$author"]
+date: "$date"
+language: "$lang"
+draft: false
+toc: true
+tags: [$tags_fmt]
+description: |
+   $desc
+---
+
+= $title
+:toc:
+:icon-set: fi
+:numbered:
+
+EOF
+
+    close $fh;
+    print "$date: New post created: $filename\n";
+}
+
+# }}}
+
+# }}}
+
+# print help and exit if requested
+print_help() if $help;
+
+# `--new` is a required argument
+die("Error: --new is required. Use --help for usage.\n") unless defined $filename;
+
+_menu();
+

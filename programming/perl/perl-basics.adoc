@@ -7,16 +7,18 @@ draft: false
 toc: true
 tags: ["perl", "script", "legacy"]
 description: |
-   Perl programming language notes/tutorials
+   Perl programming language tutorial
 ---
 
 = Perl
 :toc:
 :numbered:
 :icon-set: fi
+:source-language: perl
+
+link:/programming/perl/perl-basics.pdf[Download the PDF version]
 
 .Hello World!
-[source,perl]
 ----
 #!/bin/perl
 use warnings;
@@ -44,7 +46,6 @@ either <<doc/03-perl-numbers.adoc#_Perl_numbers,numbers>>,
 <<doc/06-perl-list.adoc#_Perl_list,list>>. Data is held as value.
 
 .Some values
-[source,perl]
 ----
 10
 20.2
@@ -57,7 +58,6 @@ value. And through the name of the variable, you can process the value.
 The following illustrates some variables in Perl:
 
 .Define variables
-[source,perl]
 ----
 $x = 10;
 $y = 20;
@@ -87,7 +87,6 @@ A statement is made up of expressions. A statement is executed by Perl at run-ti
 Each Perl statement must end with a semicolon (`;`). The following example
 shows the statements in Perl:
 
-[source,perl]
 ----
 $c = $a + $b;
 print($c);
@@ -100,7 +99,6 @@ to organize statements in the program.
 
 The following example illustrates a block in Perl:
 
-[source,perl]
 ----
 {
     $a = 1;
@@ -128,7 +126,6 @@ read and maintain your programs in the future.
 
 Let’s take a look at the following example:
 
-[source,perl]
 ----
 $salary = $salary + 1.05;
 ----
@@ -138,7 +135,6 @@ However, why it does so was not documented.
 
 Therefore the following code with comment is much clearer.
 
-[source,perl]
 ----
 # increase salary %5 for employees who achieve KPI
 $salary = $salary + 1.05;
@@ -147,7 +143,6 @@ $salary = $salary + 1.05;
 Perl also allows you to place a comment on the same line as the statement. See
 the following example:
 
-[source,perl]
 ----
 $counter = 0; # reset the counter
 ----
@@ -160,7 +155,6 @@ understand.
 Whitespaces are spaces, tabs, and newlines. Perl is very flexible in terms of
 whitespaces usages. Consider the following example:
 
-[source,perl]
 ----
 $x = 20;
 $y=20;
@@ -213,14 +207,12 @@ the `$` looks like the character S in the scalar. You can use this tip to
 remember when you want to declare a scalar variable.
 
 .Valid variables:
-[source,perl]]
 ----
 $gate = 10;
 $_port = 20;
 ----
 
 .Invalid variables:
-[source,perl]]
 ----
 $4whatever = 20; # no letter or underscore found after dollar sign ($)
 $email-address = "zen@example.com"; # special character (-) found
@@ -234,7 +226,6 @@ Perl doesn’t require you to declare a variable before using it.
 For example, you can introduce a variable in your program and use it right away
 as follows:
 
-[source,perl]
 ----
 $a = 10;
 $b = 20;
@@ -245,7 +236,6 @@ print($c);
 In some cases, using a variable without declaring it explicitly may lead to
 problems. Let’s take a look at the following example:
 
-[source,perl]
 ----
 $color = 'red';
 print "Your favorite color is " . $colour . "\n";
@@ -264,7 +254,6 @@ In this case, if you use the `my` keyword to declare a variable and try to run
 the script, Perl will issue an error message indicating that a compilation
 error occurred due to the `$colour` variable must be declared explicitly.
 
-[source,perl]
 ----
 #!/usr/bin/perl
 use strict;
@@ -285,7 +274,6 @@ scopes.
 
 Let’s take a look at the following example:
 
-[source,perl]
 ----
 #!/usr/bin/perl
 use warnings;
@@ -294,7 +282,7 @@ print("my favorite #1 color is " . $color . "\n");
 # another block
 {
     my $color = 'blue';
-    print("my favorite #2 color is " . $color . "\n");  
+    print("my favorite #2 color is " . $color . "\n");
 }
 # for checking
 print("my favorite #1 color is " . $color . "\n");
@@ -318,7 +306,6 @@ If you want to declare global variables that are visible throughout your
 program or from external packages, you can use `our` keyword as shown in the
 following code:
 
-[source,perl]
 ----
 our $color = 'red';
 ----
@@ -331,7 +318,6 @@ instead of its name.
 
 Let’s take a look at the following example:
 
-[source,perl]
 ----
 #!/usr/bin/perl
 use strict;
@@ -364,7 +350,6 @@ Integers are whole numbers that have no digits after the decimal points i.e
 In Perl, integers are often expressed as decimal integers, base 10. The
 following illustrates some integer numbers:
 
-[source,perl]
 ----
 #!/usr/bin/perl
 use warnings;
@@ -384,7 +369,6 @@ integer numbers Perl uses an underscore character (`_`) instead. In this case,
 
 Take a look at the following example:
 
-[source,perl]
 ----
 my $a = 123_763_213;
 print($a, "\n"); # 123763213
@@ -454,7 +438,6 @@ which is theoretically unlimited.
 
 The following example demonstrates single and double-quoted strings.
 
-[source,perl]
 ----
 my $s1 = "string with doubled-quotes";
 my $s2 = 'string with single quote';
@@ -475,7 +458,6 @@ operators such as:
 You can choose any non-alphabetic and non-numeric characters as the delimiters,
 not only just characters `//`.
 
-[source,perl]
 ----
 #!/usr/bin/perl
 use warnings;
@@ -499,7 +481,6 @@ print($s2 ,"\n");
 
 The following example demonstrates string with the `^` delimiter.
 
-[source,perl]
 ----
 #!/usr/bin/perl
 use warnings;
@@ -519,7 +500,6 @@ section for your reference.
 
 To find the number of characters in a string, you use the `length()` function.
 
-[source,perl]
 ----
 my $s = "This is a string\n";
 print(length($s),"\n"); #17
@@ -530,7 +510,6 @@ print(length($s),"\n"); #17
 To change the cases of a string you use a pair of functions `lc()` and `uc()`
 that returns the lowercase and uppercase versions of a string.
 
-[source,perl]
 ----
 my $s = "Change cases of a string\n";
 print("To upper case:\n");
@@ -555,7 +534,6 @@ functions.
 The following example demonstrates how to use the `index()` and `rindex()`
 functions:
 
-[source,perl]
 ----
 #!/usr/bin/perl
 use warnings;
@@ -571,7 +549,6 @@ print(qq\The substring "$sub" found at position "$p" in string "$s"\,"\n");
 
 To extract a substring out of a string, you use the `substr()` function.
 
-[source,perl]
 ----
 #!/usr/bin/perl
 use warnings;
@@ -658,7 +635,6 @@ Perl arithmetic operators deal with basic math such as adding, subtracting,
 multiplying, diving, etc. To add (`+`) or subtract (`-`) numbers, you would do
 something as follows:
 
-[source,perl]
 ----
 #!/usr/bin/perl
 use warnings;
@@ -671,7 +647,6 @@ print 20 - 10, "\n"; # 10
 To multiply or divide numbers, you use divide (`/`) and multiply (`*`) operators as follows:
 
 
-[source,perl]
 ----
 #!/usr/bin/perl
 use warnings;
@@ -689,7 +664,6 @@ The multiply and divide operators have higher precedence than add and subtract
 operators, therefore, Perl performs multiplying and dividing before adding and
 subtracting. See the following example:
 
-[source,perl]
 ----
 print 10 + 20/2 - 5 * 2 , "\n"; # 10
 ----
@@ -699,7 +673,6 @@ Perl performs 20/2 and 5*2 first, therefore you will get 10 + 10 – 10 = 10.
 You can use brackets `()` to force Perl to perform calculations based on the
 precedence you want as shown in the following example:
 
-[source,perl]
 ----
 print (((10 + 20) / 2 - 5) * 2); # 20;
 ----
@@ -708,7 +681,6 @@ To raise one number to the power of another number, you use the exponentiation
 operator.
 
 .Exponentiation operators:
-[source,perl]
 ----
 #!/usr/bin/perl
 use warnings;
@@ -724,7 +696,6 @@ It is handy to use the modulo operator (`%`) to check if a number is odd or even
 by dividing it by 2 to get the remainder. If the remainder is zero, the number
 is even, otherwise, the number is odd. See the following example:
 
-[source,perl]
 ----
 #!/usr/bin/perl
 use warnings;
@@ -746,7 +717,6 @@ The bitwise operators perform from right to left. In other words, bitwise
 operators perform from the rightmost bit to the leftmost bit.
 
 .Bitwise operations
-[source,perl]
 ----
 #!/usr/bin/perl
 use warnings;
@@ -817,7 +787,6 @@ $a <=> $b
 * *-1* if `$a` is lower than `$b`
 
 .Example
-[source,perl]
 ----
 #!/usr/bin/perl
 use warnings;
@@ -871,13 +840,11 @@ Perl provides the concatenation (`.`) and repetition (`x`) operators that allow
 you to manipulate strings
 
 .Concatenation operator (`.`)
-[source,perl]
 ----
 print "This is" . " concatenation operator" . "\n";
 ----
 
 .Repetition operators (`x`)
-[source,perl]
 ----
 print "a message " x 4, "\n";
 ----
@@ -889,7 +856,6 @@ returns a number of characters that were removed. The `chomp()` operator is
 very useful when dealing with the user’s input because it helps you remove the
 new line character \n from the string that the user entered.
 
-[source,perl]
 ----
 #!/usr/bin/perl
 use warnings;
@@ -931,7 +897,6 @@ can refer to each element by its position.
 
 === Simple Perl list
 
-[source,perl]
 ----
 ();
 (10,20,30);
@@ -948,7 +913,6 @@ Each element in the list is separated by a comma `(,)`. The print` operator is
 a list operator. So let’s display our lists above with the `print` operator to
 see how it works:
 
-[source,perl]
 ----
 #!/usr/bin/perl
 use warnings;
@@ -971,7 +935,6 @@ These lists are called simple lists.
 A Perl list may contain elements that have different data types. This kind of
 list is called a complex list. Let’s take a look at the following example:
 
-[source,perl]
 ----
 #!/usr/bin/perl
 use warnings;
@@ -988,7 +951,6 @@ Perl provides the `qw()` function that allows you to get a list by extracting
 words out of a string using the space as a delimiter. The `qw` stands for quote
 word. The two lists below are the same:
 
-[source,perl]
 ----
 #!/usr/bin/perl
 use warnings;
@@ -1004,7 +966,6 @@ print("\n");
 Similar to the `q/` and `q//` operators, you can use any non-alphanumeric
 character as a delimiter. The following lists are the same:
 
-[source,perl]
 ----
 qw\this is a list\;
 qw{this is a list};
@@ -1016,7 +977,6 @@ qw[this is a list];
 If you put a list, called an internal list, inside another list, Perl
 automatically flattens the internal list. The following lists are the same:
 
-[source,perl]
 ----
 (2,3,4,(5,6))
 (2,3,4,5,6)
@@ -1029,7 +989,6 @@ You can access elements of a list by using the zero-based index. To access the
 n^th^ element, you put (n – 1) index inside square brackets.
 
 .Let’s take a look at the following example:
-[source,perl]
 ----
 #!/usr/bin/perl
 use warnings;
@@ -1050,7 +1009,6 @@ To get multiple elements of a list at a time, you can put a list inside square
 brackets. This feature is called list slice. You can omit the parenthesis of
 the list inside the square bracket.
 
-[source,perl]
 ----
 (1,2,3,4,5)[0,2,3] # (1,3,4)
 ----
@@ -1063,7 +1021,6 @@ Perl allows you to build a list based on a range of numbers or characters e.g.,
 a list of numbers from 1 to 100, a list of characters from a to z. The
 following example defines two lists:
 
-[source,perl]
 ----
 (1..100)
 (a..z)
@@ -1095,7 +1052,6 @@ begins with the dollar sign (`$`), however, an array variable begins with an
 at-sign (`@`).
 
 .How to declare an array variable
-[source,perl]
 ----
 #!/usr/bin/perl
 use warnings;
@@ -1114,7 +1070,6 @@ working with.
 Like a list, you can access array elements using square brackets `[]` and indices.
 
 .Example
-[source,perl]
 ----
 #!/usr/bin/perl
 use warnings;
@@ -1140,7 +1095,6 @@ For example, `$days[-1]` returns the last element of the array `@days`.
 You can access multiple array elements at a time using the same technique as
 the list slice.
 
-[source,perl]
 ----
 #!/usr/bin/perl
 use warnings;
@@ -1149,7 +1103,7 @@ use strict;
 my @days = qw(Mon Tue Wed Thu Fri Sat Sun);
 my @weekend = @days[-2..-1]; # SatSun
 
-print(“@weekend”);
+print("@weekend");
 print("\n");
 ----
 
@@ -1158,7 +1112,6 @@ print("\n");
 If you treat an array as a scalar, you will get the number of elements in the
 array.
 
-[source,perl]
 ----
 my $count = @days;
 ----
@@ -1167,7 +1120,6 @@ This code causes an error in case you don’t really want to count it but
 accidentally assign an array to a scalar. To be safe, use the `scalar()`
 function.
 
-[source,perl]
 ----
 my @days = qw(Mon Tue Wed Thu Fri Sat Sun);
 my $count = scalar @days;
@@ -1176,7 +1128,6 @@ print($count, "\n");
 
 The operator `$#` returns the highest index of an array.
 
-[source,perl]
 ----
 my @days = qw(Mon Tue Wed Thu Fri Sat Sun);
 my $last = $#days;
@@ -1190,7 +1141,6 @@ assign it a new value. Perl also allows you to change the values of multiple
 elements at a time.
 
 .Example
-[source,perl]
 ----
 #!/usr/bin/perl
 use warnings;
@@ -1219,7 +1169,6 @@ first out (LIFO) philosophy. It works exactly the same as a stack of books. The
 the `pop()` function removes the last element from the end of the array.
 
 .How to use `push()` and `pop()` functions
-[source,perl]
 ----
 #!/usr/bin/perl
 use warnings;
@@ -1237,7 +1186,7 @@ push(@stack,2);
 print("push 3 to array\n");
 push(@stack,3);
 
-print(“@stack”, "\n");
+print("@stack", "\n");
 
 my $elem = pop(@stack);
 print("element: $elem\n");
@@ -1258,7 +1207,6 @@ in first out (FIFO) philosophy. It works like a queue of visitors. The
 the `pop()` function removes the last element of the array.
 
 .How to use `unshift()` and `pop()` functions
-[source,perl]
 ----
 #!/usr/bin/perl
 use warnings;
@@ -1293,7 +1241,6 @@ Perl provides the `sort()` function that allows you to sort an array in
 alphabetical or numerical order.
 
 .Sorting an array of strings alphabetically
-[source,perl]
 ----
 #!/usr/bin/perl
 use warnings;
@@ -1309,7 +1256,6 @@ The `sort()` function also accepts a block of code that allows you to change
 the sort algorithm. If you want to sort an array in numerical order, you need
 to change the default sorting algorithm.
 
-[source,perl]
 ----
 #!/usr/bin/perl
 use warnings;
@@ -1351,7 +1297,6 @@ Like a scalar or an array variable, a hash variable has its own prefix. A hash
 variable must begin with a percent sign (`%`). The prefix `%` looks like
 key/value pair so remember this trick to name the hash variables.
 
-[source,perl]
 ----
 %data = ('John Paul', 45, 'Lisa', 30, 'Kumar', 40);
 ----
@@ -1362,12 +1307,11 @@ differentiate between keys and values and makes the code more elegant.
 When you see the `=>` operator, you know that you are dealing with a hash, not
 a list or an array.
 
-[source,perl]
 ----
 my %countries =  ( England => 'English',
-                   France  => 'French', 
-                   Spain   => 'Spanish', 
-                   China   => 'Chinese', 
+                   France  => 'French',
+                   Spain   => 'Spanish',
+                   China   => 'Chinese',
                    Germany => 'German');
 ----
 
@@ -1391,16 +1335,15 @@ The most commonly used operation in the hash.
 .Look up Perl hash values
 
 Use a hash key inside curly brackets `{}` to look up a hash value.
-[source,perl]
 ----
 #!/usr/bin/perl
 use warnings;
 use strict;
 # defines country => language hash
 my %langs = ( England => 'English',
-              France => 'French', 
-              Spain => 'Spanish', 
-              China => 'Chinese', 
+              France => 'French',
+              Spain => 'Spanish',
+              China => 'Chinese',
               Germany => 'German');
 # get language of England
 my $lang = $langs{'England'}; # English
@@ -1408,20 +1351,17 @@ print($lang,"\n");
 ----
 
 .Add new element
-[source,perl]
 ----
 $langs{'Italy'} = 'Italian';
 ----
 
 .Remove a single key/value pair
-[source,perl]
 ----
 delete $langs{'China'};
 ----
 
 .Modify hash elements
 
-[source,perl]
 ----
 # add new key value pair
 $langs{'India'} = 'Many languages';
@@ -1435,7 +1375,6 @@ Perl provides the `keys()` function that allows you to get a list of keys in
 scalars. You can use the `keys()` function in a `for` loop statement to iterate
 the hash elements:
 
-[source,perl]
 ----
 #!/usr/bin/perl
 use warnings;
@@ -1443,9 +1382,9 @@ use strict;
 
 # defines country => language hash
 my %langs = ( England => 'English',
-              France  => 'French', 
-              Spain   => 'Spanish', 
-              China   => 'Chinese', 
+              France  => 'French',
+              Spain   => 'Spanish',
+              China   => 'Chinese',
               Germany => 'German');
 
 for (keys %langs) {
@@ -1462,7 +1401,6 @@ value of a hash element via its key as `$langs{$_}`.
 Perl `if` statement allows you to control the execution of your code based on
 conditions. The simplest form of the `if` statement is as follows:
 
-[source,perl]
 ----
 if (expression);
 ----
@@ -1470,7 +1408,6 @@ if (expression);
 In this form, you can put the `if` statement after another statement. Let’s
 take a look at the following example:
 
-[source,perl]
 ----
 my $a = 1;
 print("Welcome to Perl if tutorial\n") if ($a == 1);
@@ -1480,7 +1417,7 @@ The message is only displayed if the expression `$a == 1` evaluates to `true`.
 
 .How Perl defines *_true_* and *_false_*?
 ****
-* Both number 0 and string “0” are `false`.
+* Both number 0 and string "0" are `false`.
 * The `undefined` value is `false`.
 * The empty list `()` is `false`.
 * The empty string `""` is `false`.
@@ -1488,7 +1425,6 @@ The message is only displayed if the expression `$a == 1` evaluates to `true`.
 ****
 
 .Execute multiple statements based on a condition
-[source,perl]
 ----
 if (expression) {
    statement;
@@ -1509,7 +1445,6 @@ Perl provides the `if else` statement that allows you to execute a code block
 if the expression evaluates to `true`, otherwise, the code block inside the
 `else` branch will execute.
 
-[source,perl]
 ----
 if (expression) {
    // if code block;
@@ -1519,7 +1454,6 @@ if (expression) {
 ----
 
 .Example
-[source,perl]
 ----
 my $a = 1;
 my $b = 2;
@@ -1545,7 +1479,6 @@ In some cases, you want to test more than one condition:
 Perl provides the if elsif statement for checking multiple conditions and
 executing the corresponding code block:
 
-[source,perl]
 ----
 if (expression) {
     ...
@@ -1570,7 +1503,6 @@ called currency converter.
 * We convert the amount from local currency to foreign currency if the
   currencies are supported.
 
-[source,perl]
 ----
 #!/usr/bin/perl
 use warnings;
@@ -1578,7 +1510,7 @@ use strict;
 
 my ($l_curr, $f_curr, $l_amount, $f_amount);
 
-my %rates = (    
+my %rates = (
      USD => 1,
      YPY => 82.25,
      EUR => 0.78,
@@ -1641,7 +1573,6 @@ the Perl `unless` statement is equivalent to the `if not` statement
 ====
 
 .*_unless_* statement
-[source,perl]
 ----
 statement unless (condition);
 ----
@@ -1652,7 +1583,6 @@ Perl executes the statement that precedes the `unless`. If the condition is
 
 If you have more than one statement to execute, you can use the following form
 of the Perl unless statement:
-[source,perl]
 ----
 unless (condition) {
     // code block
@@ -1662,12 +1592,11 @@ unless (condition) {
 If the `condition` evaluates to `false`, Perl executes the code block,
 otherwise, it skips the code block.
 
-[source,perl]
 ----
 my $a = 10;
 
 unless($a <= 0){
-    print("a is greater than 0\n")                       
+    print("a is greater than 0\n")
 }
 ----
 
@@ -1679,7 +1608,6 @@ otherwise do that.
 This is where the `unless...else` statement comes into play. See the following
 `unless else` statement:
 
-[source,perl]
 ----
 unless (condition) {
     // unless code block
@@ -1691,13 +1619,12 @@ unless (condition) {
 If the condition is `false`, Perl will execute the `unless` code block,
 otherwise, Perl will execute the `else` code block.
 
-[source,perl]
 ----
 my $a = 10;
 unless ($a >= 0) {
-    print("a is less than 0\n");                   
+    print("a is less than 0\n");
 } else {
-    print("a is greater than or equal 0\n");                       
+    print("a is greater than or equal 0\n");
 }
 ----
 ....
@@ -1709,7 +1636,6 @@ a is greater than or equal 0
 If you have more than one condition for checking with the `unless` statement,
 you can use the `unless elsif else` statement as follows:
 
-[source,perl]
 ----
 unless (condition_1) {
     // unless code block
@@ -1722,16 +1648,15 @@ unless (condition_1) {
 
 You can have many `elsif` clauses in the `unless elsif` statement.
 
-[source,perl]
 ----
 my $a = 1;
 
 unless ($a > 0) {
-    print("a is less than 0\n");                   
+    print("a is less than 0\n");
 } elsif ($a == 0) {
-    print("a is 0\n");                   
+    print("a is 0\n");
 } else {
-    print("a is greater than 0\n");                       
+    print("a is greater than 0\n");
 }
 ----
 
@@ -1742,7 +1667,6 @@ You should use the `unless` statement with a simple condition to improve the
 code readability, especially when used as a postfix after another statement
 like the following example:
 
-[source,perl]
 ----
 my $a = 1;
 print("unless used with a very simple condition ONLY.\n") unless($a < 0);
@@ -1756,7 +1680,6 @@ requires `else` and/or `elsif` clauses.
 If you take a look at the following code, it is difficult to interpret the
 meaning of the condition.
 
-[source,perl]
 ----
 my $a = 1;
 my $b = 10;
@@ -1781,14 +1704,12 @@ matched value, Perl will execute statements in the corresponding `when` clause.
 Perl introduced the `given` statement since version 5.10. In order to use the
 Perl `given` statement, you must use the following pragma:
 
-[source,perl]
 ----
 use v5.10;
 ----
 
 Or use the following pragma:
 
-[source,perl]
 ----
 use feature "switch";
 ----
@@ -1798,7 +1719,6 @@ use feature "switch";
 There are several new keywords introduced along with the `given` such as:
 `when`, `break` and `continue`.
 
-[source,perl]
 ----
 given (expr) {
      when (expr1) { statement; }
@@ -1835,7 +1755,6 @@ given (expr) {
 
 The following program asks the user to input an RGB (red, green, blue) color and returns its color code:
 
-[source,perl]
 ----
 use v5.10; # at least for Perl 5.10
 #use feature "switch";
@@ -1881,7 +1800,6 @@ if ($code ne '') {
 From Perl version 5.12, you can use the `when` statement as a statement
 modifier like the following example:
 
-[source,perl]
 ----
 given ($color) {
     $code = '#FF0000' when 'RED';
@@ -1894,7 +1812,6 @@ given ($color) {
 In addition, the given statement returns a value that is the result of the last
 expression.
 
-[source,perl]
 ----
 print do {
     given ($color) {
@@ -1908,7 +1825,6 @@ print do {
 
 More complex example:
 
-[source,perl]
 ----
 use v5.12;
 use strict;
@@ -1951,7 +1867,6 @@ use the `foreach` keyword in where you use the `for` keyword.
 
 .Loop over elements of an array
 
-[source,perl]
 ----
 #!/usr/bin/perl
 use warnings;
@@ -1973,7 +1888,6 @@ for (@a) {
 If you replace the `for` keyword by the `foreach` keyword in the above example,
 it works the same.
 
-[source,perl]
 ----
 #!/usr/bin/perl
 use warnings;
@@ -1997,7 +1911,6 @@ iteration, Perl assigns each element of the array `@a` to the default variable
 If you want to specify an explicit iterator for the loop, you can declare it in
 the `for` loop statement as follows:
 
-[source,perl]
 ----
 #!/usr/bin/perl
 use warnings;
@@ -2017,7 +1930,6 @@ If you declare an iterator before entering the loop, Perl will restore its
 original value after the loop is terminated. Take a look at the following
 example:
 
-[source,perl]
 ----
 #!/usr/bin/perl
 use warnings;
@@ -2048,7 +1960,6 @@ In each iteration of the loop, Perl creates an alias instead of a value. In
 other words, if you make any changes to the iterator, the changes also reflect
 in the elements of the array. See the following example:
 
-[source,perl]
 ----
 #!/usr/bin/perl
 use warnings;
@@ -2078,7 +1989,6 @@ print("After the loop: @b \n");
 Perl also supports for loop in C-style. However, it is not a good practice to
 use the C-style for loop because to code will become less readable.
 
-[source,perl]
 ----
 for (initialization; test; step) {
     // code block;
@@ -2096,7 +2006,6 @@ for (initialization; test; step) {
   step to modify the loop counter.
 
 .C-style for loop:
-[source,perl]
 ----
 #!/usr/bin/perl
 use warnings;
@@ -2110,7 +2019,6 @@ for (my $i = 0; $i <= $#c; $i++) {
 
 It is much more readable if you Perl’s for loop style
 
-[source,perl]
 ----
 #!/usr/bin/perl
 use warnings;
@@ -2128,7 +2036,6 @@ Perl `while` loop statement executes a code block repeatedly as long as the
 test condition remains `true`. The test condition is checked at the beginning
 of each iteration.
 
-[source,perl]
 ----
 while (condition) {
     # code block
@@ -2160,7 +2067,6 @@ To control the loop, you use the `next` and `last` statements.
 
 Happy New Year Count Down program
 
-[source,perl]
 ----
 #!/usr/bin/env perl
 use warnings;
@@ -2187,7 +2093,7 @@ while ($counter > 0) {
   used the `sleep()` function to pause the program for a second in each
   iteration.
 * After that, use the _if statement_ to check if `$counter` is zero to print
-  the “Happy New Year” message. The code block inside the loop executes 10
+  the "Happy New Year" message. The code block inside the loop executes 10
   times before the `$counter` is set to zero.
 * Finally, after each iteration, the `$counter` decreases, and its value is set
   to zero at the 10th iteration. Perl terminated the loop.
@@ -2198,7 +2104,6 @@ while ($counter > 0) {
 You often use the while loop statement with the diamond operator `<>` to get
 the user’s input from the command line:
 
-[source,perl]
 ----
 #!/usr/bin/perl
 use warnings;
@@ -2235,7 +2140,6 @@ print "You entered: @numbers\n";
 
 let’s take a look at the following example:
 
-[source,perl]
 ----
 #!/usr/bin/perl
 use warnings;

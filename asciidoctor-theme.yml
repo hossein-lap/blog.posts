@@ -1,0 +1,109 @@
+extends: default
+page:
+  background-color: #001e26
+  size: a4paper
+  # layout: portrait
+  # margin: [0.75in, 1in, 0.75in, 1in]
+font:
+  catalog:
+    Noto Serif:
+      normal:      /usr/share/fonts/truetype/liberation/LiberationSerif-Regular.ttf
+      bold:        /usr/share/fonts/truetype/liberation/LiberationSerif-Bold.ttf
+      italic:      /usr/share/fonts/truetype/liberation/LiberationSerif-Italic.ttf
+      bold_italic: /usr/share/fonts/truetype/liberation/LiberationSerif-BoldItalic.ttf
+    M+ 1mn:
+      normal:      /usr/share/fonts/truetype/ubuntu/UbuntuMono-R.ttf
+      bold:        /usr/share/fonts/truetype/ubuntu/UbuntuMono-B.ttf
+      italic:      /usr/share/fonts/truetype/ubuntu/UbuntuMono-RI.ttf
+      bold_italic: /usr/share/fonts/truetype/ubuntu/UbuntuMono-BI.ttf
+    Title Sans:
+      normal:      /usr/share/fonts/truetype/liberation/LiberationSerif-Regular.ttf
+      bold:        /usr/share/fonts/truetype/liberation/LiberationSerif-Bold.ttf
+      italic:      /usr/share/fonts/truetype/liberation/LiberationSerif-Italic.ttf
+      bold_italic: /usr/share/fonts/truetype/liberation/LiberationSerif-BoldItalic.ttf
+base:
+  font-color: #fdf6e3
+  color: #001e26
+  #font-family: LiberationSerif
+  font-size: 11.5
+link:
+  font-color: #c61b6e
+  # text-decoration: underline
+  text-decoration-color: #c61b6e
+kbd:
+  #font-family: UbuntuMono
+button:
+  #font-family: LiberationSerif
+prose:
+  text-indent-inner: 18
+caption:
+  font-color: #839496
+  font-size: 12.5
+  font-style: bold # bold_italic
+code:
+  #font-family: UbuntuMono
+  font-size: 10
+example:
+  background-color: #25292a
+  border-radius: 0.5
+  border-width: 0.0
+codespan:
+  #font-family: UbuntuMono
+  font-size: 10
+  font-color: #fdf6e3
+  border-color: #839496
+  border-offset: 1.5
+  border-radius: 1.5
+  background-color: #002b36
+code:
+  background-color: #002b36
+  border-color: #484f58
+  font-color: #fdf6e3
+sidebar:
+  background-color: #073642
+  border-color: #839496
+  border-radius: 1.0
+  border-width: 0.4
+  title:
+    font-color: #fdf6e3
+quote:
+  font-color: #6e7681
+  border-color: #484f58
+  border-width: 0.0
+table:
+  background-color: #073642
+  border-color: #484f58
+  head:
+    background-color: #073642
+  body:
+    stripe-background-color: #002731
+admonition:
+  column-rule-style: dashed
+  border-style: double
+  label:
+    # font-color: #262626
+  icon:
+    note:
+      stroke-color: #728905
+    warning:
+      stroke-color: #a57705
+    caution:
+      stroke-color: #d01b24
+    important:
+      stroke-color: #6c71c4
+    tip:
+      stroke-color: #cccccc
+heading:
+  font-color: #fdf6e3
+  h1-font-family: "Title Sans"
+  h2-font-family: "Title Sans"
+  h3-font-family: "Title Sans"
+  h4-font-family: "Title Sans"
+  h5-font-family: "Title Sans"
+  h6-font-family: "Title Sans"
+  h1-font-size: floor($base_font_size * 2.6)
+  h2-font-size: floor($base_font_size * 2.15)
+  h3-font-size: round($base_font_size * 1.7)
+  h4-font-size: $base_font_size_large
+  h5-font-size: $base_font_size
+  h6-font-size: $base_font_size_small

@@ -192,7 +192,7 @@ RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main .
 
 ## inside our image
 # use a alpine (very small OS) image as base
-FROM alpine:latest  
+FROM alpine:latest
 
 # install dependencies
 RUN apk --no-cache add ca-certificates
@@ -205,6 +205,6 @@ COPY --from=builder /app/main .
 EXPOSE 9090
 
 # run the binary at the end
-CMD ["./main"] 
+CMD ["./main"]
 ----
 

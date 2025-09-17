@@ -266,7 +266,7 @@ kubia    10.108.1.4:8080,10.108.2.5:8080,10.108.2.6:8080     1h
 * having the service's endpoints decoupled from the service allows them to be
   configured and updated manually.
 * If you create a service without a pod selector, Kubernetes won't even create
-  the Endpoints resource 
+  the Endpoints resource
 ** after all, without a selector, it can't know which pods to include in the
    service
 * To create a service with manually managed endpoints, you need to create both

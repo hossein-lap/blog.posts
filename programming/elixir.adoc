@@ -1,7 +1,7 @@
 ---
 title: "Elixir"
 date: "2024-04-02T22:09:44+03:30"
-slug: "Elixir" 
+slug: "Elixir"
 authors: ["Hossein Esmail"]
 language: en
 draft: false
@@ -15,9 +15,9 @@ description: |
 
 = Elixir
 :doctype: article
-// :toc:
+:toc:
 :toclevels: 1
-// :numbered:
+:numbered:
 :icons: font
 :icon-set: fi
 :source-highlighter: rouge
