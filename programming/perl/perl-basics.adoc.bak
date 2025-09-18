@@ -5,7 +5,6 @@ date: "2024-09-11T15:04:10+03:30"
 language: en
 draft: false
 toc: true
-pdf: programming/perl/perl-basics.pdf
 tags: ["perl", "script", "legacy"]
 description: |
    Perl programming language tutorial
@@ -14,30 +13,21 @@ description: |
 = Perl
 :toc:
 :numbered:
-:sectnums:
-:chapter-signifier:
 :icon-set: fi
 :source-language: perl
 
-.Hello World!
-----
-#!/bin/perl
-use warnings;
-print("Hello world!\n");
-----
+== Basic Syntax
+
+****
+Basic *Perl syntax* to get started with Perl language quickly including
+variables, expressions, statements, block, comments, whitespaces, and keywords.
+****
 
 [NOTE]
 ====
 `use warnings;` is called _pragma_ in Perl. This pragma instructs Perl to turn
 on additional warning reporting.
 ====
-
-== Perl Syntax
-
-****
-Basic *Perl syntax* to get started with Perl language quickly including
-variables, expressions, statements, block, comments, whitespaces, and keywords.
-****
 
 === Values and Variables
 
@@ -182,7 +172,7 @@ Sometimes, it is fine to use a variable name such as `$print`, which is similar
 to the built-in `print()` function. However, this may lead to confusion. In
 addition, if the program has an issue, it’s more difficult to troubleshoot.
 
-== Perl Variables
+== Variables
 
 To manipulate data in your program, you use variables.
 
@@ -191,7 +181,7 @@ manipulate the corresponding data types including scalars, lists, and hashes.
 
 We'll focus on the scalar variable in this section.
 
-=== Naming variables
+=== Naming Variables
 
 You use scalar variables to manipulate scalar data such as
 <<doc/03-perl-numbers.adoc#_Perl_numbers,numbers>> and
@@ -220,7 +210,7 @@ $email-address = "zen@example.com"; # special character (-) found
 $home url = "http://localhost/perltutorial"; # space is not allowed
 ----
 
-=== Declaring variables
+=== Declaring Variables
 
 Perl doesn’t require you to declare a variable before using it.
 
@@ -256,7 +246,7 @@ the script, Perl will issue an error message indicating that a compilation
 error occurred due to the `$colour` variable must be declared explicitly.
 
 ----
-#!/usr/bin/perl
+#!/usr/bin/env perl
 use strict;
 my $color = 'red';
 print "Your favorite color is " . $colour . "\n"
@@ -271,12 +261,12 @@ to the enclosing block.
 Now, you’ll learn a very important concept in programming called variable
 scopes.
 
-=== Perl variable scopes
+=== Variable Scopes
 
 Let’s take a look at the following example:
 
 ----
-#!/usr/bin/perl
+#!/usr/bin/env perl
 use warnings;
 $color = 'red';
 print("my favorite #1 color is " . $color . "\n");
@@ -311,7 +301,7 @@ following code:
 our $color = 'red';
 ----
 
-=== Perl variable interpolation
+=== Variable Interpolation
 
 Perl interpolates variables in double-quoted strings. It means if you place a
 variable inside a double-quoted string, you’ll get the value of the variable
@@ -320,7 +310,7 @@ instead of its name.
 Let’s take a look at the following example:
 
 ----
-#!/usr/bin/perl
+#!/usr/bin/env perl
 use strict;
 use warnings;
 
@@ -339,11 +329,11 @@ Perl only interpolates scalar variables and
 only applied to the double-quoted string, but not the single-quoted string
 ====
 
-== Perl Numbers
+== Numbers
 
 Perl has two kinds of numbers: integer and floating-point numbers.
 
-=== Perl integers
+=== Integers
 
 Integers are whole numbers that have no digits after the decimal points i.e
 `10`, `-20` or `100`.
@@ -352,7 +342,7 @@ In Perl, integers are often expressed as decimal integers, base 10. The
 following illustrates some integer numbers:
 
 ----
-#!/usr/bin/perl
+#!/usr/bin/env perl
 use warnings;
 use strict;
 
@@ -407,7 +397,7 @@ All the following integer numbers are 12 in Perl:
 0xC
 ....
 
-=== Perl floating-point numbers
+=== Floating-point Numbers
 
 You use floating-point numbers to store real numbers. Perl represents
 floating-point numbers in two forms:
@@ -424,7 +414,7 @@ and 53 bits for significand.
 The range of floating-point numbers is essentially determined by the standard C
 library of the underlying platform where Perl is running.
 
-== Perl String
+== String
 
 Perl's built-in string functions to manipulate strings.
 
@@ -448,7 +438,7 @@ It is important to remember that the double-quoted string replaces variables
 inside it by their values, while the single-quoted string treats them as text.
 This is known as variable interpolation in Perl.
 
-=== Perl string alternative delimiters
+=== String Alternative Delimiters
 
 Besides the single and double quotes, Perl also allows you to use quote-like
 operators such as:
@@ -460,7 +450,7 @@ You can choose any non-alphabetic and non-numeric characters as the delimiters,
 not only just characters `//`.
 
 ----
-#!/usr/bin/perl
+#!/usr/bin/env perl
 use warnings;
 use strict;
 
@@ -483,7 +473,7 @@ print($s2 ,"\n");
 The following example demonstrates string with the `^` delimiter.
 
 ----
-#!/usr/bin/perl
+#!/usr/bin/env perl
 use warnings;
 use strict;
 
@@ -491,7 +481,7 @@ my $s = q^A string with different delimiter ^;
 print($s,"\n");
 ----
 
-=== Perl string functions
+=== String Functions
 
 Perl provides a set of functions that allow you to manipulate strings
 effectively. We cover the most commonly used string functions in the following
@@ -536,7 +526,7 @@ The following example demonstrates how to use the `index()` and `rindex()`
 functions:
 
 ----
-#!/usr/bin/perl
+#!/usr/bin/env perl
 use warnings;
 use strict;
 
@@ -551,7 +541,7 @@ print(qq\The substring "$sub" found at position "$p" in string "$s"\,"\n");
 To extract a substring out of a string, you use the `substr()` function.
 
 ----
-#!/usr/bin/perl
+#!/usr/bin/env perl
 use warnings;
 use strict;
 # extract substring
@@ -620,24 +610,24 @@ descriptions:
 | Returns the uppercase version of the string
 |===
 
-== Perl Operator
+== Operator
 
 Perl operators including numeric operators, string operators, and logical operators.
 
-=== Numeric operators
+=== Numeric Operators
 
 Perl provides numeric operators to help you operate on numbers including
 arithmetic, Boolean and bitwise operations. Let’s examine the different kinds
 of operators in more detail.
 
-.Arithmetic operators
+.Arithmetic Operators
 
 Perl arithmetic operators deal with basic math such as adding, subtracting,
 multiplying, diving, etc. To add (`+`) or subtract (`-`) numbers, you would do
 something as follows:
 
 ----
-#!/usr/bin/perl
+#!/usr/bin/env perl
 use warnings;
 use strict;
 
@@ -649,7 +639,7 @@ To multiply or divide numbers, you use divide (`/`) and multiply (`*`) operators
 
 
 ----
-#!/usr/bin/perl
+#!/usr/bin/env perl
 use warnings;
 use strict;
 
@@ -683,7 +673,7 @@ operator.
 
 .Exponentiation operators:
 ----
-#!/usr/bin/perl
+#!/usr/bin/env perl
 use warnings;
 use strict;
 
@@ -698,7 +688,7 @@ by dividing it by 2 to get the remainder. If the remainder is zero, the number
 is even, otherwise, the number is odd. See the following example:
 
 ----
-#!/usr/bin/perl
+#!/usr/bin/env perl
 use warnings;
 use strict;
 
@@ -719,7 +709,7 @@ operators perform from the rightmost bit to the leftmost bit.
 
 .Bitwise operations
 ----
-#!/usr/bin/perl
+#!/usr/bin/env perl
 use warnings;
 use strict;
 
@@ -789,7 +779,7 @@ $a <=> $b
 
 .Example
 ----
-#!/usr/bin/perl
+#!/usr/bin/env perl
 use warnings;
 use strict;
 
@@ -805,9 +795,9 @@ $b = 5;
 print $a <=> $b, "\n";
 ----
 
-=== String operators
+=== String Operators
 
-.Comparison operators
+.Comparison Operators
 
 |===
 | Equality | Operators
@@ -858,7 +848,7 @@ very useful when dealing with the user’s input because it helps you remove the
 new line character \n from the string that the user entered.
 
 ----
-#!/usr/bin/perl
+#!/usr/bin/env perl
 use warnings;
 use strict;
 
@@ -869,7 +859,7 @@ print $s;
 
 NOTE: The `<STDIN>` is used to get input from users.
 
-=== Logical operators
+=== Logical Operators
 
 Logical operators are often used in control statements such as
 <<doc/09-perl-if-statement.adoc#_Perl_if_Statement,if>>,
@@ -885,7 +875,7 @@ etc., to control the flow of the program. The following are logical operators in
   operator inverts the value of the following variable or expression. In the
   other words, it converts `true` to `false` or `false` to `true`.
 
-== Perl List
+== List
 
 Perl list and how to manipulate list elements using various techniques such as
 list slicing, ranging and qw() function.
@@ -896,7 +886,7 @@ values. You use parenthesis and comma operators to construct a list. Each value
 is the list is called list element. List elements are indexed and ordered. You
 can refer to each element by its position.
 
-=== Simple Perl list
+=== Simple Perl List
 
 ----
 ();
@@ -915,7 +905,7 @@ a list operator. So let’s display our lists above with the `print` operator to
 see how it works:
 
 ----
-#!/usr/bin/perl
+#!/usr/bin/env perl
 use warnings;
 use strict;
 
@@ -931,13 +921,13 @@ We passed several lists to the `print` operator to display their elements. All
 the lists that we have seen so far contain an element with the same data type.
 These lists are called simple lists.
 
-=== Complex Perl list
+=== Complex Perl List
 
 A Perl list may contain elements that have different data types. This kind of
 list is called a complex list. Let’s take a look at the following example:
 
 ----
-#!/usr/bin/perl
+#!/usr/bin/env perl
 use warnings;
 use strict;
 
@@ -946,14 +936,14 @@ my $s = "a string";
 print("complex list", $x , $s ,"\n");
 ----
 
-=== Using qw function
+=== Using qw Function
 
 Perl provides the `qw()` function that allows you to get a list by extracting
 words out of a string using the space as a delimiter. The `qw` stands for quote
 word. The two lists below are the same:
 
 ----
-#!/usr/bin/perl
+#!/usr/bin/env perl
 use warnings;
 use strict;
 
@@ -973,7 +963,7 @@ qw{this is a list};
 qw[this is a list];
 ----
 
-=== Flattening list
+=== Flattening List
 
 If you put a list, called an internal list, inside another list, Perl
 automatically flattens the internal list. The following lists are the same:
@@ -984,14 +974,14 @@ automatically flattens the internal list. The following lists are the same:
 ((2,3,4),5,6)
 ----
 
-=== Accessing list element
+=== Accessing List Element
 
 You can access elements of a list by using the zero-based index. To access the
 n^th^ element, you put (n – 1) index inside square brackets.
 
 .Let’s take a look at the following example:
 ----
-#!/usr/bin/perl
+#!/usr/bin/env perl
 use warnings;
 use strict;
 
@@ -1054,7 +1044,7 @@ at-sign (`@`).
 
 .How to declare an array variable
 ----
-#!/usr/bin/perl
+#!/usr/bin/env perl
 use warnings;
 use strict;
 
@@ -1066,13 +1056,13 @@ The `$` sign looks like `S` in the word scalar. And `@` looks like `a` in the
 word array, which is a simple trick to remember what type of variables you are
 working with.
 
-=== Accessing Perl array elements
+=== Accessing Perl Array Elements
 
 Like a list, you can access array elements using square brackets `[]` and indices.
 
 .Example
 ----
-#!/usr/bin/perl
+#!/usr/bin/env perl
 use warnings;
 use strict;
 
@@ -1097,7 +1087,7 @@ You can access multiple array elements at a time using the same technique as
 the list slice.
 
 ----
-#!/usr/bin/perl
+#!/usr/bin/env perl
 use warnings;
 use strict;
 
@@ -1108,7 +1098,7 @@ print("@weekend");
 print("\n");
 ----
 
-=== Counting Perl array elements
+=== Counting Perl Array Elements
 
 If you treat an array as a scalar, you will get the number of elements in the
 array.
@@ -1135,7 +1125,7 @@ my $last = $#days;
 print($last, "\n"); #" 6
 ----
 
-=== Modifying Perl array elements
+=== Modifying Perl Array Elements
 
 To change the value of an element, you access the element using the index and
 assign it a new value. Perl also allows you to change the values of multiple
@@ -1143,7 +1133,7 @@ elements at a time.
 
 .Example
 ----
-#!/usr/bin/perl
+#!/usr/bin/env perl
 use warnings;
 use strict;
 
@@ -1156,7 +1146,7 @@ $days[0] = 'Monday';
 print("@days","\n");
 ----
 
-=== Perl array operations
+=== Array Operations
 
 Perl provides several useful functions and operators to help you manipulate
 arrays effectively. We will cover the most important ones in the following
@@ -1171,7 +1161,7 @@ the `pop()` function removes the last element from the end of the array.
 
 .How to use `push()` and `pop()` functions
 ----
-#!/usr/bin/perl
+#!/usr/bin/env perl
 use warnings;
 use strict;
 
@@ -1209,7 +1199,7 @@ the `pop()` function removes the last element of the array.
 
 .How to use `unshift()` and `pop()` functions
 ----
-#!/usr/bin/perl
+#!/usr/bin/env perl
 use warnings;
 use strict;
 
@@ -1243,7 +1233,7 @@ alphabetical or numerical order.
 
 .Sorting an array of strings alphabetically
 ----
-#!/usr/bin/perl
+#!/usr/bin/env perl
 use warnings;
 use strict;
 
@@ -1258,7 +1248,7 @@ the sort algorithm. If you want to sort an array in numerical order, you need
 to change the default sorting algorithm.
 
 ----
-#!/usr/bin/perl
+#!/usr/bin/env perl
 use warnings;
 use strict;
 my @a = qw(3 2 1 4 7 6);
@@ -1302,10 +1292,10 @@ key/value pair so remember this trick to name the hash variables.
 %data = ('John Paul', 45, 'Lisa', 30, 'Kumar', 40);
 ----
 
-Perl provides the `\=>` operator as an alternative to a comma (`,`). It helps
+Perl provides the `=>` operator as an alternative to a comma (`,`). It helps
 differentiate between keys and values and makes the code more elegant.
 
-When you see the `\=>` operator, you know that you are dealing with a hash, not
+When you see the `=>` operator, you know that you are dealing with a hash, not
 a list or an array.
 
 ----
@@ -1333,11 +1323,11 @@ You can omit the quotation in the keys of the hash.
 
 The most commonly used operation in the hash.
 
-.Look up Perl hash values
+.Look Up Perl Hash Values
 
 Use a hash key inside curly brackets `{}` to look up a hash value.
 ----
-#!/usr/bin/perl
+#!/usr/bin/env perl
 use warnings;
 use strict;
 # defines country => language hash
@@ -1377,7 +1367,7 @@ scalars. You can use the `keys()` function in a `for` loop statement to iterate
 the hash elements:
 
 ----
-#!/usr/bin/perl
+#!/usr/bin/env perl
 use warnings;
 use strict;
 
@@ -1505,7 +1495,7 @@ called currency converter.
   currencies are supported.
 
 ----
-#!/usr/bin/perl
+#!/usr/bin/env perl
 use warnings;
 use strict;
 
@@ -1869,7 +1859,7 @@ use the `foreach` keyword in where you use the `for` keyword.
 .Loop over elements of an array
 
 ----
-#!/usr/bin/perl
+#!/usr/bin/env perl
 use warnings;
 use strict;
 
@@ -1890,7 +1880,7 @@ If you replace the `for` keyword by the `foreach` keyword in the above example,
 it works the same.
 
 ----
-#!/usr/bin/perl
+#!/usr/bin/env perl
 use warnings;
 use strict;
 
@@ -1913,7 +1903,7 @@ If you want to specify an explicit iterator for the loop, you can declare it in
 the `for` loop statement as follows:
 
 ----
-#!/usr/bin/perl
+#!/usr/bin/env perl
 use warnings;
 use strict;
 
@@ -1932,7 +1922,7 @@ original value after the loop is terminated. Take a look at the following
 example:
 
 ----
-#!/usr/bin/perl
+#!/usr/bin/env perl
 use warnings;
 use strict;
 
@@ -1962,7 +1952,7 @@ other words, if you make any changes to the iterator, the changes also reflect
 in the elements of the array. See the following example:
 
 ----
-#!/usr/bin/perl
+#!/usr/bin/env perl
 use warnings;
 use strict;
 
@@ -2008,7 +1998,7 @@ for (initialization; test; step) {
 
 .C-style for loop:
 ----
-#!/usr/bin/perl
+#!/usr/bin/env perl
 use warnings;
 use strict;
 
@@ -2021,7 +2011,7 @@ for (my $i = 0; $i <= $#c; $i++) {
 It is much more readable if you Perl’s for loop style
 
 ----
-#!/usr/bin/perl
+#!/usr/bin/env perl
 use warnings;
 use strict;
 
@@ -2031,7 +2021,7 @@ for (@c) {
 }
 ----
 
-== *_while_* loop statement
+== *_while_* Loop Statement
 
 Perl `while` loop statement executes a code block repeatedly as long as the
 test condition remains `true`. The test condition is checked at the beginning
@@ -2106,7 +2096,7 @@ You often use the while loop statement with the diamond operator `<>` to get
 the user’s input from the command line:
 
 ----
-#!/usr/bin/perl
+#!/usr/bin/env perl
 use warnings;
 use strict;
 
@@ -2142,7 +2132,7 @@ print "You entered: @numbers\n";
 let’s take a look at the following example:
 
 ----
-#!/usr/bin/perl
+#!/usr/bin/env perl
 use warnings;
 use strict;
 
@@ -2162,4 +2152,7 @@ beginning of each iteration.
 
 You use the `while` loop statement modifier only if you have one statement to
 execute repeatedly based on a condition like the above example.
+
+
+link:/programming/perl/perl-basics.pdf[Download the PDF version]
 

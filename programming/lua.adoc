@@ -6,6 +6,7 @@ date: "2024-04-02T22:30:09+03:30"
 language: en
 toc: true
 draft: false
+pdf: programming/lua.pdf
 tags: ["Lua", "Embedded", "Game", "Plugin"]
 # categories: ["Progamming"]
 # series: ["Lua"]
@@ -262,9 +263,10 @@ return else function nil then elseif goto not true
 ----
 
 .Lua is case-sensitive
-****
+[NOTE]
+====
 `and` is a reserved word, but `And` and `AND` are two different identifiers.
-****
+====
 
 == Comments
 

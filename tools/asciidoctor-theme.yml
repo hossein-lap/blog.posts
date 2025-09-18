@@ -1,0 +1,42 @@
+extends: default
+page:
+  background-color: #FFFFFF
+  size: a4paper
+font:
+  catalog:
+    Noto Serif:
+      normal:      /usr/share/fonts/TTF/FreeSans.ttf
+      bold:        /usr/share/fonts/TTF/FreeSansBold.ttf
+      italic:      /usr/share/fonts/TTF/FreeSansOblique.ttf
+      bold_italic: /usr/share/fonts/TTF/FreeSansBoldOblique.ttf
+    M+ 1mn:
+      normal:      /usr/share/fonts/TTF/UbuntuMono-R.ttf
+      bold:        /usr/share/fonts/TTF/UbuntuMono-B.ttf
+      italic:      /usr/share/fonts/TTF/UbuntuMono-RI.ttf
+      bold_italic: /usr/share/fonts/TTF/UbuntuMono-BI.ttf
+    Title Sans:
+      normal:      /usr/share/fonts/TTF/FreeSerif.ttf
+      bold:        /usr/share/fonts/TTF/FreeSerifBold.ttf
+      italic:      /usr/share/fonts/TTF/FreeSerifItalic.ttf
+      bold_italic: /usr/share/fonts/TTF/FreeSerifBoldItalic.ttf
+base:
+  font-color: #000000
+  color: #FFFFFF
+  font-size: 
+link:
+  font-color: #0366D6
+  text-decoration-color: #0366D6
+caption:
+  font-color: #770000
+  font-size: 
+  font-style: bold
+code:
+  font-size: 
+  background-color: #F6F8FA
+  border-color: #E1E4E8
+  font-color: #000000
+codespan:
+  font-size: 
+  font-color: #000000
+  border-color: #E1E4E8
+  background-color: #F6F8FA

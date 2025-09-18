@@ -4,6 +4,7 @@ date: "2024-04-02T22:09:44+03:30"
 slug: "Elixir"
 authors: ["Hossein Esmail"]
 language: en
+pdf: programming/elixir.pdf
 draft: false
 tags: ["Functional", "Elixir"]
 # categories: ["functional programming"]

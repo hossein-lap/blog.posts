@@ -1,0 +1,49 @@
+---
+title: "Perl"
+authors: ["Hossein Esmail"]
+date: "2024-09-11T15:04:10+03:30"
+language: en
+draft: false
+toc: true
+tags: ["perl", "script", "legacy"]
+description: |
+   Perl programming language tutorial
+---
+
+= Perl
+:toc:
+:numbered:
+:icon-set: fi
+:source-language: perl
+:includedir: /home/hos/dev/hossein-lap/blog.posts.git/master/programming/perl/perl-basics
+
+link:{includedir}/perl-basics.pdf[Download the PDF version]
+
+include::{includedir}/syntax-00-introduction.adoc[]
+include::{includedir}/syntax-01-variables.adoc[]
+include::{includedir}/syntax-02-numbers.adoc[]
+include::{includedir}/syntax-03-strings.adoc[]
+include::{includedir}/syntax-04-operators.adoc[]
+include::{includedir}/syntax-05-list.adoc[]
+include::{includedir}/syntax-06-array.adoc[]
+include::{includedir}/syntax-07-hash.adoc[]
+include::{includedir}/syntax-08-if.adoc[]
+include::{includedir}/syntax-09-unless.adoc[]
+include::{includedir}/syntax-10-given.adoc[]
+include::{includedir}/syntax-11-for.adoc[]
+include::{includedir}/syntax-12-while.adoc[]
+include::{includedir}/syntax-13-do-while.adoc[]
+include::{includedir}/syntax-14-until.adoc[]
+include::{includedir}/syntax-15-next.adoc[]
+include::{includedir}/syntax-16-last.adoc[]
+include::{includedir}/syntax-17-reference.adoc[]
+include::{includedir}/syntax-18-subroutine.adoc[]
+include::{includedir}/syntax-19-module.adoc[]
+include::{includedir}/syntax-20-oop.adoc[]
+include::{includedir}/syntax-21-dbi.adoc[]
+include::{includedir}/syntax-22-sort.adoc[]
+include::{includedir}/syntax-23-open-file.adoc[]
+include::{includedir}/syntax-24-read-file.adoc[]
+include::{includedir}/syntax-25-write-file.adoc[]
+include::{includedir}/syntax-26-file-test-ops.adoc[]
+

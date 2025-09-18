@@ -5,6 +5,7 @@ authors: ["Hossein Esmail"]
 date: "2024-04-02T22:30:03+03:30"
 language: en
 draft: false
+pdf: programming/go.pdf
 tags: ["Go", "CLI"]
 # categories: ["dev", "golang"]
 # series: ["golang", "go"]

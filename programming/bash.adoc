@@ -4,6 +4,7 @@ authors: ["Hossein Esmail"]
 date: "2024-10-07T15:10:23+03:30"
 language: en
 draft: false
+pdf: programming/bash.pdf
 toc: true
 tags: ["Bash", "Shell", "CLI"]
 description: |
