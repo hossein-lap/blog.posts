@@ -13,6 +13,10 @@ PDF_FILES := $(ADOC_FILES:.adoc=.pdf)
 
 all: $(PDF_FILES)
 
+force:
+	touch *.adoc
+	make all
+
 clean:
 	rm -f $(PDF_FILES)
 
